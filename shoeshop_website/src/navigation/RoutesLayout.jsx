@@ -3,7 +3,7 @@ import React, { useState } from "react";
 // import Dashboard from "../pages/dashboard/Dashboard";
 // import Customers from "../pages/customers/Customers";
 // import Sales from "../pages/sales/Sales";
-// import Products from "../pages/products/Products";
+import Products from "../pages/products/Products";
 // import Orders from "../pages/orders/Orders";
 // import Staff from "../pages/staff/Staff";
 // import Revenues from "../pages/revenues/Revenues";
@@ -30,7 +30,7 @@ const RoutesLayout = ({ rerender, setRerender }) => {
         {/* <Checkout /> */}
       </Route>
       <Route path="/products">
-        {/* <Products /> */}
+        <Products />
       </Route>
       <Route path="/productQr">
         {/* <ProductQr /> */}
