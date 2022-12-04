@@ -9,20 +9,20 @@ const Login = ({ setIsAuticated }) => {
   const history = useHistory();
   const [errorLogin, setErorLogin] = useState("");
   const submitForm = () => {
-    // axios
-    //   .post("http://localhost:5000/api/users/login", user)
-    //   .then((res) => {
-    //     localStorage.setItem("user", JSON.stringify(res.data));
-    //     setIsAuticated(true);
-    //     history.push("/home");
-    //   })
-    //   .catch((e) => {
-    //     setErorLogin("Tên tài khoản hoặc mật khẩu không chính xác");
-    //   });
+    axios
+      .post("http://localhost:5000/api/users/login", user)
+      .then((res) => {
+        localStorage.setItem("user", JSON.stringify(res.data));
+        setIsAuticated(true);
+        history.push("/home");
+      })
+      .catch((e) => {
+        setErorLogin("Tên tài khoản hoặc mật khẩu không chính xác");
+      });
 
     //Navigate to Screen
-    setIsAuticated(true);
-    history.push("/home");
+    // setIsAuticated(true);
+    // history.push("/home");
     // sử dụng jwt để hash token
 
   };

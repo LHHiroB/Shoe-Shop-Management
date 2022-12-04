@@ -2,8 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import "./AddProduct.css";
 import axios from "axios";
 
-// import validateProduct from "../form_validate/validateProduct";
-// import useFormProduct from "../form_validate/useFormProduct";
+import validateProduct from "../form_validate/validateProduct";
+import useFormProduct from "../form_validate/useFormProduct";
 
 const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
   const inputAvatarRef = useRef(null);
@@ -82,35 +82,35 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
     return newOptions;
   };
 
-  // const handleIncreaseDiscount = (e) => {
-  //   setProduct((prev) => {
-  //     if (prev.discount <= 99) {
-  //       const discount = Math.floor(prev.discount) + 1;
-  //       return {
-  //         ...prev,
-  //         discount: discount,
-  //         salePrice: prev.costPrice - (discount * prev.costPrice) / 100,
-  //       };
-  //     } else {
-  //       return prev;
-  //     }
-  //   });
-  // };
+  const handleIncreaseDiscount = (e) => {
+    setProduct((prev) => {
+      if (prev.discount <= 99) {
+        const discount = Math.floor(prev.discount) + 1;
+        return {
+          ...prev,
+          discount: discount,
+          salePrice: prev.costPrice - (discount * prev.costPrice) / 100,
+        };
+      } else {
+        return prev;
+      }
+    });
+  };
 
-  // const handleDecreaseDiscount = (e) => {
-  //   setProduct((prev) => {
-  //     if (prev.discount > 0) {
-  //       const discount = Math.floor(prev.discount) - 1;
-  //       return {
-  //         ...prev,
-  //         discount: discount,
-  //         salePrice: prev.costPrice - (discount * prev.costPrice) / 100,
-  //       };
-  //     } else {
-  //       return prev;
-  //     }
-  //   });
-  // };
+  const handleDecreaseDiscount = (e) => {
+    setProduct((prev) => {
+      if (prev.discount > 0) {
+        const discount = Math.floor(prev.discount) - 1;
+        return {
+          ...prev,
+          discount: discount,
+          salePrice: prev.costPrice - (discount * prev.costPrice) / 100,
+        };
+      } else {
+        return prev;
+      }
+    });
+  };
 
   //active function when choose image from pc
   const onImageChange = (event) => {
@@ -120,59 +120,59 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
   };
 
   //Submit form
-//   const submitForm = async () => {
-//     var optionsVal = await getOption();
-//     console.log(optionsVal);
-//     const formProduct = new FormData();
-//     formProduct.append("categoryId", categoryId);
-//     formProduct.append("name", product.name);
-//     formProduct.append("costPrice", product.costPrice);
-//     formProduct.append("discount", product.discount);
-//     formProduct.append("salePrice", product.salePrice);
-//     formProduct.append("originPrice", product.originPrice);
+  const submitForm = async () => {
+    var optionsVal = await getOption();
+    console.log(optionsVal);
+    const formProduct = new FormData();
+    formProduct.append("categoryId", categoryId);
+    formProduct.append("name", product.name);
+    formProduct.append("costPrice", product.costPrice);
+    formProduct.append("discount", product.discount);
+    formProduct.append("salePrice", product.salePrice);
+    formProduct.append("originPrice", product.originPrice);
 
-//     formProduct.append("image", avatar);
+    formProduct.append("image", avatar);
 
-//     for (var i = 0; i < optionsVal.length; i++) {
-//       var optionVal = optionsVal[i];
-//       for (var prop in optionVal) {
-//         formProduct.append(`options[${i}][${prop}]`, optionVal[prop]);
-//       }
-//     }
-//     //post to API
-//     axios
-//       .post(
-//         "http://localhost:5000/api/products/add",
-//         formProduct,
-//         {
-//           headers: {
-//             "Content-Type": "multipart/form-data",
-//             "Access-Control-Allow-Origin": "*",
-//           },
-//         }
-//       )
-//       .then((res) => {
-//         console.log(res.data);
-//         setQrImage(res.data.qrCodeUrl);
-//         setProductId(res.data._id);
-//         setRerenderProducts(true);
-//         alert("Thêm sản phẩm thành công");
-//       })
-//       .catch((error) => {
-//         console.log(error);
-//         if (error.response) {
-//           alert("Thêm sản phẩm thất bại");
-//           // Request made and server responded
-//           console.log(error.response.data);
-//         }
-//       });
-//   };
-//   const { handleChange, handleSubmit, errors } = useFormProduct(
-//     submitForm,
-//     product,
-//     setProduct,
-//     validateProduct
-//   );
+    for (var i = 0; i < optionsVal.length; i++) {
+      var optionVal = optionsVal[i];
+      for (var prop in optionVal) {
+        formProduct.append(`options[${i}][${prop}]`, optionVal[prop]);
+      }
+    }
+    //post to API
+    axios
+      .post(
+        "http://localhost:5000/api/products/add",
+        formProduct,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res.data);
+        // setQrImage(res.data.qrCodeUrl);
+        setProductId(res.data._id);
+        setRerenderProducts(true);
+        alert("Thêm sản phẩm thành công");
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.response) {
+          alert("Thêm sản phẩm thất bại");
+          // Request made and server responded
+          console.log(error.response.data);
+        }
+      });
+  };
+  const { handleChange, handleSubmit, errors } = useFormProduct(
+    submitForm,
+    product,
+    setProduct,
+    validateProduct
+  );
 
   const onExitClick = () => {
     setShowFormAddProduct(false);
@@ -208,11 +208,11 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
               type="text"
               pattern="[0-9]*"
               name="costPrice"
-            //   value={product.costPrice}
-            //   onChange={handleChange}
+              value={product.costPrice}
+              onChange={handleChange}
             />
             <p className="add_product-form-error">
-            {/* {errors.costPrice} */}
+            {errors.costPrice}
             </p>
           </div>
           <div className="add_product-form-row">
@@ -241,21 +241,21 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
               type="text"
               pattern="[0-9]*"
               value={product.discount}
-            //   onChange={handleChange}
+              onChange={handleChange}
             />
 
             <div className="discount_type">
               <i
-                // onClick={handleIncreaseDiscount}
+                onClick={handleIncreaseDiscount}
                 class="bx bxs-up-arrow discount_type_item"
               ></i>
               <i
-                // onClick={handleDecreaseDiscount}
+                onClick={handleDecreaseDiscount}
                 class="bx bxs-down-arrow discount_type_item"
               ></i>
             </div>
             <p className="add_product-form-error">
-            {/* {errors.countInStock} */}
+            {errors.countInStock}
             </p>
           </div>
 
@@ -263,12 +263,12 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
             <span>Tên sản phẩm</span>
             <input 
             name="name" 
-            // value={product.name} 
-            // onChange={handleChange} 
+            value={product.name} 
+            onChange={handleChange} 
 
             />
             <p className="add_product-form-error">
-            {/* {errors.name} */}
+            {errors.name}
             </p>
           </div>
           <div className="add_product-form-row">
@@ -278,11 +278,11 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
               pattern="[0-9]*"
               name="salePrice"
               className="salePrice"
-            //   value={product.salePrice}
-            //   onChange={handleChange}
+              value={product.salePrice}
+              onChange={handleChange}
             />
             <p className="add_product-form-error">
-            {/* {errors.salePrice} */}
+            {errors.salePrice}
             </p>
           </div>
           <div className="add_product-form-row">
@@ -318,7 +318,7 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
               })}
             </div>
             <p className="add_product-form-error">
-            {/* {errors.size} */}
+            {errors.size}
             </p>
           </div>
           {/* <div className="add_product-form-row">
