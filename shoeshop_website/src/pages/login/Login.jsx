@@ -10,7 +10,7 @@ const Login = ({ setIsAuticated }) => {
   const [errorLogin, setErorLogin] = useState("");
   const submitForm = () => {
     // axios
-    //   .post("https://clothesapp123.herokuapp.com/api/users/login", user)
+    //   .post("http://localhost:5000/api/users/login", user)
     //   .then((res) => {
     //     localStorage.setItem("user", JSON.stringify(res.data));
     //     setIsAuticated(true);

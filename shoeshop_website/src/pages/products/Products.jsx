@@ -14,7 +14,7 @@ import "./Products.css";
 import ModalUnstyled from "@mui/core/ModalUnstyled";
 import { styled } from "@mui/system";
 // import UpdateProduct from "./updateProduct/UpdateProduct";
-// import Dialog from "../../components/dialog/Dialog";
+import Dialog from "../../components/dialog/Dialog";
 import { Link } from "react-router-dom";
 // import { useReactToPrint } from "react-to-print";
 const StyledModal = styled(ModalUnstyled)`
@@ -82,7 +82,7 @@ const Products = () => {
   //get product from API
   useEffect(() => {
     axios
-      .get("https://clothesapp123.herokuapp.com/api/products/listProduct")
+      .get("http://localhost:5000/api/products/listProduct")
       .then((res) => {
         setProducts(res.data);
         setOriginProducts(res.data);
@@ -95,7 +95,7 @@ const Products = () => {
   //get All products
   const getAllProducts = () => {
     axios
-      .get("https://clothesapp123.herokuapp.com/api/products/listProduct")
+      .get("http://localhost:5000/api/products/listProduct")
       .then((res) => {
         setProducts(res.data);
       })
@@ -121,7 +121,7 @@ const Products = () => {
 
   useEffect(() => {
     axios
-      .get("https://clothesapp123.herokuapp.com/api/products/listCategory", {
+      .get("http://localhost:5000/api/products/listCategory", {
         params: {
           name: "Áo",
         },
@@ -145,7 +145,7 @@ const Products = () => {
 
   useEffect(() => {
     axios
-      .get("https://clothesapp123.herokuapp.com/api/products/listCategory", {
+      .get("http://localhost:5000/api/products/listCategory", {
         params: {
           name: "Quần",
         },
@@ -181,7 +181,7 @@ const Products = () => {
   const handleFilterProductsByCategory = (e) => {
     axios
       .get(
-        "https://clothesapp123.herokuapp.com/api/products/productByCategory",
+        "http://localhost:5000/api/products/productByCategory",
         {
           params: {
             category: e.target.value,
@@ -213,7 +213,7 @@ const Products = () => {
   const handleDeleteProduct = () => {
     axios
       .delete(
-        `https://clothesapp123.herokuapp.com/api/products/deleteOnebyId/${selectedProduct._id}`
+        `http://localhost:5000/api/products/deleteOnebyId/${selectedProduct._id}`
       )
       .then((res) => {
         handleCloseDialog();
@@ -224,13 +224,13 @@ const Products = () => {
   };
   return (
     <div className="div_product">
-      {/* <Dialog
+      <Dialog
         title="Xoá sản phẩm"
         content={`Bạn có muốn xoá sản phẩm: ${selectedProduct?.name} `}
         open={showDialogDelete}
         handleCancel={handleCloseDialog}
         handleAction={handleDeleteProduct}
-      /> */}
+      />
       <StyledModal
         aria-labelledby="unstyled-modal-title"
         aria-describedby="unstyled-modal-description"

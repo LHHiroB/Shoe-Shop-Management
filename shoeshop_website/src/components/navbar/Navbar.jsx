@@ -14,7 +14,7 @@ const NavBar = ({ rerender, currentTabIndex, setCurrentTabIndex }) => {
 
   //   axios
   //     .get(
-  //       `https://clothesapp123.herokuapp.com/api/users/getInfo/${userLocal.userId}`
+  //       `http://localhost:5000/api/users/getInfo/${userLocal.userId}`
   //     )
   //     .then((res) => {
   //       setUser(res.data);

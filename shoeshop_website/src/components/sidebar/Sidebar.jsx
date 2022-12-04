@@ -21,11 +21,11 @@ const Sidebar = ({ currentTabIndex, setCurrentTabIndex }) => {
     }
   };
     useEffect(() => {
-            console.log(console.log("test"));
+            console.log(console.log("test hue"));
 
             axios
                 .get(
-                    `https://clothesapp123.herokuapp.com/api/users/getInfo/${userLocal.userId}`
+                    `http://localhost:5000/api/users/getInfo/${userLocal.userId}`
                 )
                 .then((res) => {
                     setUser(res.data);

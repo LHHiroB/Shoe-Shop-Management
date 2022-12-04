@@ -63,6 +63,9 @@
   
     font-size: 16px;
 }
+.bxs-edit, .bx-trash{
+    cursor: pointer;
+}
 /* @keyframes fade-in-ani {
     from {
       opacity: 0;

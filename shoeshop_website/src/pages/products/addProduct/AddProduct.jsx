@@ -6,102 +6,118 @@ import axios from "axios";
 // import useFormProduct from "../form_validate/useFormProduct";
 
 const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
-//   const inputAvatarRef = useRef(null);
-//   const [productId, setProductId] = useState();
-//   const [avatar, setAvatar] = useState();
-//   const [categories, setCategories] = useState([]);
-//   const [categoryId, setCategoryId] = useState();
+  const inputAvatarRef = useRef(null);
+  const [productId, setProductId] = useState();
+  const [avatar, setAvatar] = useState();
+  const [categories, setCategories] = useState([]);
+  const [categoryId, setCategoryId] = useState();
 //   const [qrImage, setQrImage] = useState(
 //     "https://res.cloudinary.com/hoquanglinh/image/upload/v1639458680/Linh/cwq6qhmybgzhvpp58ytp.png"
 //   );
-//   const [product, setProduct] = useState({
-//     name: "",
-//     category: "Áo",
-//     costPrice: 0,
-//     salePrice: 0,
-//     originPrice: 0,
-//     discount: 0,
-//   });
+  const [product, setProduct] = useState({
+    name: "",
+    category: "Áo",
+    costPrice: 0,
+    salePrice: 0,
+    originPrice: 0,
+    discount: 0,
+  });
 
-  //get All categories
+  //get All categories (Loại sản phẩm)
   useEffect(() => {
-    // axios
-    //   .get("https://clothesapp123.herokuapp.com/api/products/getAllCategories")
-    //   .then((res) => {
-    //     console.log(res.data);
-    //     setCategories(res.data);
-    //     setCategoryId(res.data[0]._id);
-    //   });
+    axios
+      .get("http://localhost:5000/api/products/getAllCategories")
+      .then((res) => {
+        console.log(res.data);
+        setCategories(res.data);
+        setCategoryId(res.data[0]._id);
+      });
   }, []);
 
-//   const [options, setOptions] = useState([
-//     { id: 0, size: "3XL", quantity: 0 },
-//     { id: 1, size: "XXL", quantity: 0 },
-//     { id: 2, size: "XL", quantity: 0 },
-//     { id: 3, size: "L", quantity: 0 },
-//     { id: 4, size: "M", quantity: 0 },
-//     { id: 5, size: "S", quantity: 0 },
-//   ]);
+  // const [options, setOptions] = useState([
+  //   { id: 0, size: "3XL", quantity: 0 },
+  //   { id: 1, size: "XXL", quantity: 0 },
+  //   { id: 2, size: "XL", quantity: 0 },
+  //   { id: 3, size: "L", quantity: 0 },
+  //   { id: 4, size: "M", quantity: 0 },
+  //   { id: 5, size: "S", quantity: 0 },
 
-//   const handleOptionChecked = (index) => {
-//     let newOptions = [...options];
-//     newOptions[index] = {
-//       ...options[index],
-//       checked: !newOptions[index].checked,
-//     };
-//     setOptions(newOptions);
-//   };
-//   const getOption = async () => {
-//     // const newOptions = options.filter((option) => option.checked == true);
+  // ]);
+  const [options, setOptions] = useState([
+    { id: 0, size: "35", quantity: 0 },
+    { id: 1, size: "36", quantity: 0 },
+    { id: 2, size: "37", quantity: 0 },
+    { id: 3, size: "38", quantity: 0 },
+    { id: 4, size: "39", quantity: 0 },
+    { id: 5, size: "40", quantity: 0 },
+    { id: 6, size: "41", quantity: 0 },
+    { id: 7, size: "42", quantity: 0 },
+    { id: 8, size: "43", quantity: 0 },
+    { id: 9, size: "44", quantity: 0 },
+    { id: 10, size: "45", quantity: 0 },
+    { id: 11, size: "46", quantity: 0 },
 
-//     var newOptions = options
-//       .filter((option) => option.checked === true && option.quantity > 0)
-//       .map((option) => {
-//         return {
-//           size: option.size,
-//           quantity: option.quantity,
-//         };
-//       });
+  ]);
 
-//     return newOptions;
-//   };
+  const handleOptionChecked = (index) => {
+    let newOptions = [...options];
+    newOptions[index] = {
+      ...options[index],
+      checked: !newOptions[index].checked,
+    };
+    setOptions(newOptions);
+  };
+  const getOption = async () => {
+    // const newOptions = options.filter((option) => option.checked == true);
 
-//   const handleIncreaseDiscount = (e) => {
-//     setProduct((prev) => {
-//       if (prev.discount <= 99) {
-//         const discount = Math.floor(prev.discount) + 1;
-//         return {
-//           ...prev,
-//           discount: discount,
-//           salePrice: prev.costPrice - (discount * prev.costPrice) / 100,
-//         };
-//       } else {
-//         return prev;
-//       }
-//     });
-//   };
+    var newOptions = options
+      .filter((option) => option.checked === true && option.quantity > 0)
+      .map((option) => {
+        return {
+          size: option.size,
+          quantity: option.quantity,
+        };
+      });
 
-//   const handleDecreaseDiscount = (e) => {
-//     setProduct((prev) => {
-//       if (prev.discount > 0) {
-//         const discount = Math.floor(prev.discount) - 1;
-//         return {
-//           ...prev,
-//           discount: discount,
-//           salePrice: prev.costPrice - (discount * prev.costPrice) / 100,
-//         };
-//       } else {
-//         return prev;
-//       }
-//     });
-//   };
+    return newOptions;
+  };
+
+  // const handleIncreaseDiscount = (e) => {
+  //   setProduct((prev) => {
+  //     if (prev.discount <= 99) {
+  //       const discount = Math.floor(prev.discount) + 1;
+  //       return {
+  //         ...prev,
+  //         discount: discount,
+  //         salePrice: prev.costPrice - (discount * prev.costPrice) / 100,
+  //       };
+  //     } else {
+  //       return prev;
+  //     }
+  //   });
+  // };
+
+  // const handleDecreaseDiscount = (e) => {
+  //   setProduct((prev) => {
+  //     if (prev.discount > 0) {
+  //       const discount = Math.floor(prev.discount) - 1;
+  //       return {
+  //         ...prev,
+  //         discount: discount,
+  //         salePrice: prev.costPrice - (discount * prev.costPrice) / 100,
+  //       };
+  //     } else {
+  //       return prev;
+  //     }
+  //   });
+  // };
 
   //active function when choose image from pc
-//   const onImageChange = (event) => {
-//     if (event.target.files && event.target.files[0]) {
-//       setAvatar(event.target.files[0]);
-//     }
-//   };
+  const onImageChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      setAvatar(event.target.files[0]);
+    }
+  };
 
   //Submit form
 //   const submitForm = async () => {
@@ -126,7 +142,7 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
 //     //post to API
 //     axios
 //       .post(
-//         "https://clothesapp123.herokuapp.com/api/products/add",
+//         "http://localhost:5000/api/products/add",
 //         formProduct,
 //         {
 //           headers: {
@@ -178,18 +194,13 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
         <div className="add_product-form">
           <div className="add_product-form-row">
             <span>Mã sản phẩm</span>
-            {/* <input
+            <input
               value={productId}
               type="text"
               placeholder="Mã tự động"
               readOnly
-            /> */}
-            <input
-            //   value={productId}
-              type="text"
-              placeholder="Mã tự động"
-              readOnly
             />
+           
           </div>
           <div className="add_product-form-row">
             <span>Giá vốn (đồng)</span>
@@ -210,17 +221,17 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
             <select
               name="category"
               onChange={(e) => {
-                // setCategoryId(e.target.value);
+                setCategoryId(e.target.value);
               }}
               className="add_product-form-select"
             >
-              {/* {categories.map((category) => {
+              {categories.map((category) => {
                 return (
                   <option key={category._id} value={category._id}>
                     {category.name}
                   </option>
                 );
-              })} */}
+              })}
             </select>
           </div>
           <div className="add_product-form-row">
@@ -229,7 +240,7 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
               name="discount"
               type="text"
               pattern="[0-9]*"
-            //   value={product.discount}
+              value={product.discount}
             //   onChange={handleChange}
             />
 
@@ -280,7 +291,9 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
               style={{ width: "70%" }}
               className="add_product-form-list-size"
             >
-              {/* {options.map((option, index) => {
+              
+              {/* handle size  */}
+              {options.map((option, index) => {
                 return (
                   <div className="add_product-form-size-item">
                     <input
@@ -302,7 +315,7 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
                     />
                   </div>
                 );
-              })} */}
+              })}
             </div>
             <p className="add_product-form-error">
             {/* {errors.size} */}
@@ -321,8 +334,10 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
           </div> */}
         </div>
       </div>
-      <div className="add_product-form-images">
-        {/* <div className="add_product-form-image">
+
+      {/* Add image */}
+      <div className="add_product-form-images">    
+        <div className="add_product-form-image">
           <input
             ref={inputAvatarRef}
             type="file"
@@ -342,20 +357,22 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
             }
             alt=""
           />
-        </div> */}
+        </div>
         {/* <div className="add_product-form-image">
           <p>Mã vạch</p>
           <img style={{ height: 120, width: 120 }} src={qrImage} alt="" />
         </div> */}
       </div>
-      {/* <div className="add_product-btn-row">
-        <button onClick={handleSubmit} className="add_product-btn-save">
+      <div className="add_product-btn-row">
+        <button 
+        // onClick={handleSubmit} 
+        className="add_product-btn-save">
           Lưu
         </button>
         <button onClick={onExitClick} className="add_product-btn-cancel">
-          Bỏ qua
+          Hủy
         </button>
-      </div> */}
+      </div>
     </div>
   );
 };

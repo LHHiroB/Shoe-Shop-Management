@@ -4,7 +4,7 @@ import ModalUnstyled from "@mui/core/ModalUnstyled";
 import { styled } from '@mui/material/styles';
 import AddProduct from "../addProduct/AddProduct";
 import axios from "axios";
-// import Dialog from "../../../components/dialog/Dialog";
+import Dialog from "../../../components/dialog/Dialog";
 
 const StyledModal = styled(ModalUnstyled)`
   position: fixed;
@@ -33,7 +33,7 @@ const ProductsNavbar = ({ setRerenderProducts, handlePrint }) => {
   const excelRef = useRef(null);
   const [showExcelIcon, setShowExcelIcon] = useState(false);
   const [selectedFile, setSelectedFile] = useState();
-//   const [showDialogImport, setShowDialogImport] = useState(false);
+  const [showDialogImport, setShowDialogImport] = useState(false);
   const handleClose = () => {
     setShowFormAddProduct(false);
   };
@@ -45,20 +45,20 @@ const ProductsNavbar = ({ setRerenderProducts, handlePrint }) => {
       setSelectedFile(e.target.files[0]);
     }
   };
-//   const handleShowModal = () => {
-//     if (!showExcelIcon) {
-//       alert("Vui lòng chọn file ở icon bên trái trước");
-//     } else {
-//     //   setShowDialogImport(true);
-//     }
-//   };
+  const handleShowModal = () => {
+    if (!showExcelIcon) {
+      alert("Vui lòng chọn file ở icon bên trái trước");
+    } else {
+      setShowDialogImport(true);
+    }
+  };
 
 //   const handleImportFile = (e) => {
 //     const excelFileProducts = new FormData();
 //     excelFileProducts.append("file", selectedFile);
 //     axios
 //       .post(
-//         "https://clothesapp123.herokuapp.com/api/products/import",
+//         "http://localhost:5000/api/products/import",
 //         excelFileProducts,
 //         {
 //           headers: {
@@ -82,7 +82,7 @@ const ProductsNavbar = ({ setRerenderProducts, handlePrint }) => {
   return (
     <div>
       <div>
-        {/* <StyledModal
+        <StyledModal
           aria-labelledby="unstyled-modal-title"
           aria-describedby="unstyled-modal-description"
           open={showFormAddProduct}
@@ -93,7 +93,7 @@ const ProductsNavbar = ({ setRerenderProducts, handlePrint }) => {
             setRerenderProducts={setRerenderProducts}
             setShowFormAddProduct={setShowFormAddProduct}
           />
-        </StyledModal> */}
+        </StyledModal>
       </div>
 
       <div className="row list-action-products-btn">
@@ -104,8 +104,9 @@ const ProductsNavbar = ({ setRerenderProducts, handlePrint }) => {
           <i class="bx bx-plus"></i>
           Thêm mới{" "}
         </div>
-        <div className="action-products-btn">
-          {/* <input
+
+        {/* <div className="action-products-btn">  // Import file
+          <input
             accept=".xlsx, .xls"
             onClick={(e) => {
               e.target.value = "";
@@ -114,7 +115,7 @@ const ProductsNavbar = ({ setRerenderProducts, handlePrint }) => {
             ref={excelRef}
             type="file"
             style={{ display: "none" }}
-          /> */}
+          />
           {showExcelIcon && (
             <i
               onClick={(e) => {
@@ -132,8 +133,9 @@ const ProductsNavbar = ({ setRerenderProducts, handlePrint }) => {
               class="bx bxs-file-import"
             ></i>
           )}
-          <div /*onClick={handleShowModal}*/>Import</div>
-        </div>
+          <div onClick={handleShowModal}>Import</div>
+        </div> */}
+
         {/* <Dialog
           title="Import file sản phẩm từ file excel"
           content="Bạn có muốn import file excel này"
@@ -142,14 +144,18 @@ const ProductsNavbar = ({ setRerenderProducts, handlePrint }) => {
           handleCancel={setShowDialogImport}
         /> */}
 
-        <div
-          onClick={() => {
-            // handlePrint();
-          }}
-          className="action-products-btn"
-        >
-          <i class="bx bxs-file-export"></i>Xuất file
-        </div>
+
+        {/* Xuất file 
+          <div
+            onClick={() => {
+              // handlePrint();
+            }}
+            className="action-products-btn"
+          >
+            <i class="bx bxs-file-export"></i>Xuất file
+          </div> */}
+
+          
       </div>
     </div>
   );
