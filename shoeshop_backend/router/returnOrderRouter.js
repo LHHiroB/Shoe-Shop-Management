@@ -145,7 +145,7 @@ router.post("/", async function (req, res) {
         })
       );
       var qrCodeImage = await cloudinary.uploader.upload(fileQrCode, {
-        folder: "Linh",
+        folder: "Hue",
       });
       const qrCodeUrl = qrCodeImage.url;
       orderWithQr = await ReturnOrder.findOneAndUpdate(
