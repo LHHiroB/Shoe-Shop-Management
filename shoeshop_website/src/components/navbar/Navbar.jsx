@@ -34,19 +34,19 @@ const NavBar = ({ rerender, currentTabIndex, setCurrentTabIndex }) => {
           }}
           className="navbar__right"
         >
-          {/* <Link
-            // to={{
-            //   pathname: "/editProfile",
-            //   state: { user },
-            // }}
-          > */}
+          <Link
+            to={{
+              pathname: "/editProfile",
+              state: { user },
+            }}
+          >
             <div className="navbar__right-item">
               <img src={user?.imageUrl} alt="" />
               <span>{user.fullname}</span>
               {/* <img src="https://i.pinimg.com/280x280_RS/2e/45/66/2e4566fd829bcf9eb11ccdb5f252b02f.jpg" alt="" />
               <span>Hue Nguyen</span> */}
             </div>
-          {/* </Link> */}
+          </Link>
         </div>
       </div>
     </div>

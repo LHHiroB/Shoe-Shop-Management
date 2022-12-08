@@ -12,7 +12,7 @@ import Products from "../pages/products/Products";
 // import ReturnOrderDetail from "../pages/returns/return_order_detail/ReturnOrderDetail";
 // import ReturnBill from "../pages/returns/return_bill/ReturnBill";
 // import OrderDetail from "../pages/orders/orderdetail/OrderDetail";
-// import EditProfile from "../pages/user/editprofile/EditProfile";
+import EditProfile from "../pages/user/editprofile/EditProfile";
 // import ChangePassWord from "../pages/user/changepassword/ChangePassWord";
 // import ProductQr from "../pages/products/product_qr/ProductQr";
 const RoutesLayout = ({ rerender, setRerender }) => {
@@ -45,7 +45,7 @@ const RoutesLayout = ({ rerender, setRerender }) => {
         {/* <Staff /> */}
       </Route>
       <Route path="/editProfile">
-        {/* <EditProfile rerender={rerender} setRerender={setRerender} /> */}
+        <EditProfile rerender={rerender} setRerender={setRerender} />
       </Route>
       <Route path="/revenues">
         {/* <Revenues /> */}
