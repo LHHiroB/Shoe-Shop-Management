@@ -168,7 +168,7 @@ router.post("/import", multerExcel, async (req, res) => {
               })
             );
             const qrCodeImage = await cloudinary.uploader.upload(fileQrCode, {
-              folder: "Linh",
+              folder: "Hue",
             });
             let product = Product({
               categoryId: newCategory._id,
@@ -279,7 +279,7 @@ router.post("/import", multerExcel, async (req, res) => {
                 const qrCodeImage = await cloudinary.uploader.upload(
                   fileQrCode,
                   {
-                    folder: "Linh",
+                    folder: "Hue",
                   }
                 );
                 console.log(
@@ -412,12 +412,12 @@ router.post("/add", multerUploads, async (req, res) => {
 
     //upload file to clould
     var image = await cloudinary.uploader.upload(fileAvatar, {
-      folder: "Linh",
+      folder: "Hue",
     });
   }
 
   var qrCodeImage = await cloudinary.uploader.upload(fileQrCode, {
-    folder: "Linh",
+    folder: "Hue",
   });
 
   if (req.body.newCategory == "true") {
@@ -516,7 +516,7 @@ router.put("/updateProduct/:id", multerUploads, async (req, res) => {
       buffer
     );
     var imageDisplay = await cloudinary.uploader.upload(fileImageDisplay, {
-      folder: "Linh",
+      folder: "Hue",
     });
     fieldToUpdate = { ...fieldToUpdate, imageDisplay: imageDisplay.url };
   }
@@ -530,7 +530,7 @@ router.put("/updateProduct/:id", multerUploads, async (req, res) => {
       })
     );
     var qrCodeImage = await cloudinary.uploader.upload(fileQrCode, {
-      folder: "Linh",
+      folder: "Hue",
     });
     const qrCodeUrl = qrCodeImage.url;
     const name = req.body.name;

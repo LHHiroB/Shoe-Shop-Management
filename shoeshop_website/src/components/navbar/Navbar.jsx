@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from "react";
 import "./navbar.css";
 // import cr7 from "../../assets/images/cr7.jpg";
-// import { Link } from "react-router-dom";
-// import axios from "axios";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 const NavBar = ({ rerender, currentTabIndex, setCurrentTabIndex }) => {
-  // console.log(JSON.parse(localStorage.getItem("user")));
-  // const userLocal = JSON.parse(localStorage.getItem("user"));
-  // const [user, setUser] = useState([]);
-  // console.log(userLocal.userId);
-  // useEffect(() => {
-  //   console.log(console.log("test"));
+  console.log(JSON.parse(localStorage.getItem("user")));
+  const userLocal = JSON.parse(localStorage.getItem("user"));
+  const [user, setUser] = useState([]);
+  console.log(userLocal.userId);
+  useEffect(() => {
+    console.log(console.log("test"));
 
-  //   axios
-  //     .get(
-  //       `http://localhost:5000/api/users/getInfo/${userLocal.userId}`
-  //     )
-  //     .then((res) => {
-  //       setUser(res.data);
-  //     });
-  // }, [rerender]);
+    axios
+      .get(
+        `http://localhost:5000/api/users/getInfo/${userLocal.userId}`
+      )
+      .then((res) => {
+        setUser(res.data);
+      });
+  }, [rerender]);
   return (
     <div>
       <div className="navbar">
@@ -41,10 +41,10 @@ const NavBar = ({ rerender, currentTabIndex, setCurrentTabIndex }) => {
             // }}
           > */}
             <div className="navbar__right-item">
-              {/* <img src={user?.imageUrl} alt="" />
-              <span>{user.fullname}</span> */}
-              <img src="https://i.pinimg.com/280x280_RS/2e/45/66/2e4566fd829bcf9eb11ccdb5f252b02f.jpg" alt="" />
-              <span>Hue Nguyen</span>
+              <img src={user?.imageUrl} alt="" />
+              <span>{user.fullname}</span>
+              {/* <img src="https://i.pinimg.com/280x280_RS/2e/45/66/2e4566fd829bcf9eb11ccdb5f252b02f.jpg" alt="" />
+              <span>Hue Nguyen</span> */}
             </div>
           {/* </Link> */}
         </div>

@@ -127,7 +127,7 @@ router.post("/register", multerUploads, async (req, res) => {
     console.log(file);
     //upload file to clould
     var image = await cloudinary.uploader.upload(file, {
-      folder: "Linh",
+      folder: "Hue",
     });
   }
   console.log(req.body);
@@ -175,7 +175,7 @@ router.put("/updateUser/:id", multerUploads, async (req, res) => {
 
     //upload file to clould
     var image = await cloudinary.uploader.upload(file, {
-      folder: "Linh",
+      folder: "Hue",
     });
   }
   console.log(req.body);
