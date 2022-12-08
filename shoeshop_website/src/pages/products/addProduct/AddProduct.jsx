@@ -365,7 +365,7 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
       </div>
       <div className="add_product-btn-row">
         <button 
-        // onClick={handleSubmit} 
+        onClick={handleSubmit} 
         className="add_product-btn-save">
           Lưu
         </button>

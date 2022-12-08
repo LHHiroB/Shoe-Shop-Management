@@ -3,8 +3,8 @@ import { Link, useLocation, useHistory } from "react-router-dom";
 import "./editprofile.css";
 import TextField from "@mui/material/TextField";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import DatePicker from "@mui/lab/DatePicker";
+// import LocalizationProvider from "@mui/lab/LocalizationProvider";
+// import DatePicker from "@mui/lab/DatePicker";
 import axios from "axios";
 export default function EditProfile({ rerender, setRerender }) {
   let location = useLocation();
@@ -15,8 +15,7 @@ export default function EditProfile({ rerender, setRerender }) {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:5000/api/users/updateUser/${userLocal._id}`
-        // /api/users/updateUser/${user._id}
+        `http://localhost:5000/api/users/getInfo/${userLocal._id}`
         
       )
       .then((res) => {
@@ -56,8 +55,7 @@ export default function EditProfile({ rerender, setRerender }) {
     //post to API
     axios
       .put(
-        `https://localhost:5000/api/users/updateUser/${user._id}`,
-        // /api/users/updateUser/${user._id}
+        `http://localhost:5000/api/users/updateUser/${user._id}`,
         formStaff,
         {
           headers: {
