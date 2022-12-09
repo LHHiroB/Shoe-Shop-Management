@@ -13,7 +13,7 @@ import Products from "../pages/products/Products";
 // import ReturnBill from "../pages/returns/return_bill/ReturnBill";
 // import OrderDetail from "../pages/orders/orderdetail/OrderDetail";
 import EditProfile from "../pages/user/editprofile/EditProfile";
-// import ChangePassWord from "../pages/user/changepassword/ChangePassWord";
+import ChangePassWord from "../pages/user/changepassword/ChangePassWord";
 // import ProductQr from "../pages/products/product_qr/ProductQr";
 const RoutesLayout = ({ rerender, setRerender }) => {
   const user = localStorage.getItem("user");
@@ -51,7 +51,7 @@ const RoutesLayout = ({ rerender, setRerender }) => {
         {/* <Revenues /> */}
       </Route>
       <Route path="/changePassWord">
-        {/* <ChangePassWord /> */}
+        <ChangePassWord />
       </Route>
       <Route path="/returns">
         {/* <Returns /> */}
