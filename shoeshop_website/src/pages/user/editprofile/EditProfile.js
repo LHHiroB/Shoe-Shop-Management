@@ -56,7 +56,7 @@ export default function EditProfile({ rerender, setRerender }) {
     //post to API
     axios
       .put(
-        `https://localhost:5000/api/users/updateUser/${user._id}`,
+        `http://localhost:5000/api/users/updateUser/${user._id}`,
         // /api/users/updateUser/${user._id}
         formStaff,
         {
