@@ -1,11 +1,11 @@
 import { Switch, Route } from "react-router-dom";
 import React, { useState } from "react";
-// import Dashboard from "../pages/dashboard/Dashboard";
+import Dashboard from "../pages/dashboard/Dashboard";
 // import Customers from "../pages/customers/Customers";
 // import Sales from "../pages/sales/Sales";
 import Products from "../pages/products/Products";
 // import Orders from "../pages/orders/Orders";
-// import Staff from "../pages/staff/Staff";
+import Staff from "../pages/staff/Staff";
 // import Revenues from "../pages/revenues/Revenues";
 // import Returns from "../pages/returns/Returns";
 // import Checkout from "../pages/sales/checkout/Checkout";
@@ -42,7 +42,7 @@ const RoutesLayout = ({ rerender, setRerender }) => {
         {/* <OrderDetail /> */}
       </Route>
       <Route path="/staffs">
-        {/* <Staff /> */}
+        <Staff />
       </Route>
       <Route path="/editProfile">
         <EditProfile rerender={rerender} setRerender={setRerender} />
@@ -63,7 +63,7 @@ const RoutesLayout = ({ rerender, setRerender }) => {
         {/* <ReturnBill /> */}
       </Route>
       <Route path="/">
-        {/* <Dashboard></Dashboard> */}
+        <Dashboard></Dashboard>
       </Route>
     </Switch>
   );
