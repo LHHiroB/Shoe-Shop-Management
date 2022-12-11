@@ -2,9 +2,7 @@ import React, { useState, useRef } from "react";
 import "./UpdateStaff.css";
 
 import TextField from "@mui/material/TextField";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import DatePicker from "@mui/lab/DatePicker";
+import DatePicker from "react-date-picker";
 import useFormStaff from "./useFormStaff";
 import validateUpdateStaff from "./validateUpdateStaff";
 import axios from "axios";
@@ -106,8 +104,9 @@ const UpdateStaff = ({ staff, setStaff, setShowFormUpdateStaff }) => {
             <span>Ngày sinh</span>
             <p className="update_staff-form-error">{errors.birthday}</p>
 
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
               <DatePicker
+                className="container__date"
+                format="dd/MM/yyyy"
                 inputFormat="dd/MM/yyyy"
                 views={["day", "month", "year"]}
                 value={staff.birthday}
@@ -129,7 +128,6 @@ const UpdateStaff = ({ staff, setStaff, setShowFormUpdateStaff }) => {
                   />
                 )}
               />
-            </LocalizationProvider>
           </div>
           <div className="update_staff-form-row">
             <span>Họ tên</span>

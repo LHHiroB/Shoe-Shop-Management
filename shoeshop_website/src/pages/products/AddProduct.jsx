@@ -1,9 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
+// import "../staff/addstaff/AddStaff.css";
+import "../staff/AddStaff.css"
 import "./AddProduct.css";
 import axios from "axios";
 
-import validateProduct from "../form_validate/validateProduct";
-import useFormProduct from "../form_validate/useFormProduct";
+import validateProduct from "./form_validate/validateProduct";
+import useFormProduct from "./form_validate/useFormProduct";
 
 const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
   const inputAvatarRef = useRef(null);
@@ -11,9 +13,9 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
   const [avatar, setAvatar] = useState();
   const [categories, setCategories] = useState([]);
   const [categoryId, setCategoryId] = useState();
-//   const [qrImage, setQrImage] = useState(
-//     "https://res.cloudinary.com/hoquanglinh/image/upload/v1639458680/Linh/cwq6qhmybgzhvpp58ytp.png"
-//   );
+  // const [qrImage, setQrImage] = useState(
+  //   "https://res.cloudinary.com/hoquanglinh/image/upload/v1639458680/Linh/cwq6qhmybgzhvpp58ytp.png"
+  // );
   const [product, setProduct] = useState({
     name: "",
     category: "Áo",
@@ -23,7 +25,7 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
     discount: 0,
   });
 
-  //get All categories (Loại sản phẩm)
+  //get All categories
   useEffect(() => {
     axios
       .get("http://localhost:5000/api/products/getAllCategories")
@@ -34,29 +36,13 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
       });
   }, []);
 
-  // const [options, setOptions] = useState([
-  //   { id: 0, size: "3XL", quantity: 0 },
-  //   { id: 1, size: "XXL", quantity: 0 },
-  //   { id: 2, size: "XL", quantity: 0 },
-  //   { id: 3, size: "L", quantity: 0 },
-  //   { id: 4, size: "M", quantity: 0 },
-  //   { id: 5, size: "S", quantity: 0 },
-
-  // ]);
   const [options, setOptions] = useState([
-    { id: 0, size: "35", quantity: 0 },
-    { id: 1, size: "36", quantity: 0 },
-    { id: 2, size: "37", quantity: 0 },
-    { id: 3, size: "38", quantity: 0 },
-    { id: 4, size: "39", quantity: 0 },
-    { id: 5, size: "40", quantity: 0 },
-    { id: 6, size: "41", quantity: 0 },
-    { id: 7, size: "42", quantity: 0 },
-    { id: 8, size: "43", quantity: 0 },
-    { id: 9, size: "44", quantity: 0 },
-    { id: 10, size: "45", quantity: 0 },
-    { id: 11, size: "46", quantity: 0 },
-
+    { id: 0, size: "36", quantity: 0 },
+    { id: 1, size: "37", quantity: 0 },
+    { id: 2, size: "38", quantity: 0 },
+    { id: 3, size: "39", quantity: 0 },
+    { id: 4, size: "40", quantity: 0 },
+    { id: 5, size: "41", quantity: 0 },
   ]);
 
   const handleOptionChecked = (index) => {
@@ -200,7 +186,6 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
               placeholder="Mã tự động"
               readOnly
             />
-           
           </div>
           <div className="add_product-form-row">
             <span>Giá vốn (đồng)</span>
@@ -211,9 +196,7 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
               value={product.costPrice}
               onChange={handleChange}
             />
-            <p className="add_product-form-error">
-            {errors.costPrice}
-            </p>
+            <p className="add_product-form-error">{errors.costPrice}</p>
           </div>
           <div className="add_product-form-row">
             <span>Loại sản phẩm</span>
@@ -254,22 +237,13 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
                 class="bx bxs-down-arrow discount_type_item"
               ></i>
             </div>
-            <p className="add_product-form-error">
-            {errors.countInStock}
-            </p>
+            <p className="add_product-form-error">{errors.countInStock}</p>
           </div>
 
           <div className="add_product-form-row">
             <span>Tên sản phẩm</span>
-            <input 
-            name="name" 
-            value={product.name} 
-            onChange={handleChange} 
-
-            />
-            <p className="add_product-form-error">
-            {errors.name}
-            </p>
+            <input name="name" value={product.name} onChange={handleChange} />
+            <p className="add_product-form-error">{errors.name}</p>
           </div>
           <div className="add_product-form-row">
             <span>Giá bán (đồng)</span>
@@ -281,9 +255,7 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
               value={product.salePrice}
               onChange={handleChange}
             />
-            <p className="add_product-form-error">
-            {errors.salePrice}
-            </p>
+            <p className="add_product-form-error">{errors.salePrice}</p>
           </div>
           <div className="add_product-form-row">
             <span style={{ width: "30%" }}>Size</span>
@@ -291,8 +263,6 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
               style={{ width: "70%" }}
               className="add_product-form-list-size"
             >
-              
-              {/* handle size  */}
               {options.map((option, index) => {
                 return (
                   <div className="add_product-form-size-item">
@@ -317,9 +287,7 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
                 );
               })}
             </div>
-            <p className="add_product-form-error">
-            {errors.size}
-            </p>
+            <p className="add_product-form-error">{errors.size}</p>
           </div>
           {/* <div className="add_product-form-row">
             <span>Giá nhập hàng</span>
@@ -334,9 +302,7 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
           </div> */}
         </div>
       </div>
-
-      {/* Add image */}
-      <div className="add_product-form-images">    
+      <div className="add_product-form-images">
         <div className="add_product-form-image">
           <input
             ref={inputAvatarRef}
@@ -364,18 +330,15 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
         </div> */}
       </div>
       <div className="add_product-btn-row">
-        <button 
-        onClick={handleSubmit} 
-        className="add_product-btn-save">
+        <button onClick={handleSubmit} className="add_product-btn-save">
           Lưu
         </button>
         <button onClick={onExitClick} className="add_product-btn-cancel">
-          Hủy
+          Bỏ qua
         </button>
       </div>
     </div>
   );
 };
-
 
 export default AddProduct;

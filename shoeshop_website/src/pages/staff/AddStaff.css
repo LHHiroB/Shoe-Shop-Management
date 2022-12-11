@@ -137,3 +137,11 @@
     color: white;
     background-color: #898c8d;
   }
+  .container__date{
+    padding-left: 8px;
+    width: 65%;
+    /* background: Red; */
+    border-radius: 5px;
+    border: 1px solid #a19b9b;
+    height: 40px;
+  }

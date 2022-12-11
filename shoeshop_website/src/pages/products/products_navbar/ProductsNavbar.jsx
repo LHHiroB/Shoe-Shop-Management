@@ -1,11 +1,11 @@
 import React, { useState, useRef } from "react";
-import "./ProductsNavbar.css";
+import "./products_navbar.css";
+import AddProduct from "./../AddProduct";
 import ModalUnstyled from "@mui/core/ModalUnstyled";
-import { styled } from '@mui/material/styles';
-import AddProduct from "../addProduct/AddProduct";
-import axios from "axios";
 import Dialog from "../../../components/dialog/Dialog";
-
+import { styled } from "@mui/system";
+import axios from "axios";
+import { Link } from "react-router-dom";
 const StyledModal = styled(ModalUnstyled)`
   position: fixed;
   z-index: 1300;
@@ -52,33 +52,32 @@ const ProductsNavbar = ({ setRerenderProducts, handlePrint }) => {
       setShowDialogImport(true);
     }
   };
-
-//   const handleImportFile = (e) => {
-//     const excelFileProducts = new FormData();
-//     excelFileProducts.append("file", selectedFile);
-//     axios
-//       .post(
-//         "http://localhost:5000/api/products/import",
-//         excelFileProducts,
-//         {
-//           headers: {
-//             "Content-Type": "multipart/form-data",
-//             "Access-Control-Allow-Origin": "*",
-//           },
-//         }
-//       )
-//       .then((res) => {
-//         alert("Thêm danh sách sản phẩm thành công");
-//         setRerenderProducts(true);
-//         // setShowDialogImport(false);
-//         setShowExcelIcon(false);
-//       })
-//       .catch((err) => {
-//         alert("Lỗi nhập hàng, vui lòng kiểm tra lại file excel");
-//         // setShowDialogImport(false);
-//         setShowExcelIcon(false);
-//       });
-//   };
+  // const handleImportFile = (e) => {
+  //   const excelFileProducts = new FormData();
+  //   excelFileProducts.append("file", selectedFile);
+  //   axios
+  //     .post(
+  //       "http://localhost:5000/api/products/import",
+  //       excelFileProducts,
+  //       {
+  //         headers: {
+  //           "Content-Type": "multipart/form-data",
+  //           "Access-Control-Allow-Origin": "*",
+  //         },
+  //       }
+  //     )
+  //     .then((res) => {
+  //       alert("Thêm danh sách sản phẩm thành công");
+  //       setRerenderProducts(true);
+  //       setShowDialogImport(false);
+  //       setShowExcelIcon(false);
+  //     })
+  //     .catch((err) => {
+  //       alert("Lỗi nhập hàng, vui lòng kiểm tra lại file excel");
+  //       setShowDialogImport(false);
+  //       setShowExcelIcon(false);
+  //     });
+  // };
   return (
     <div>
       <div>
@@ -104,8 +103,7 @@ const ProductsNavbar = ({ setRerenderProducts, handlePrint }) => {
           <i class="bx bx-plus"></i>
           Thêm mới{" "}
         </div>
-
-        {/* <div className="action-products-btn">  // Import file
+        {/* <div className="action-products-btn">
           <input
             accept=".xlsx, .xls"
             onClick={(e) => {
@@ -135,7 +133,6 @@ const ProductsNavbar = ({ setRerenderProducts, handlePrint }) => {
           )}
           <div onClick={handleShowModal}>Import</div>
         </div> */}
-
         {/* <Dialog
           title="Import file sản phẩm từ file excel"
           content="Bạn có muốn import file excel này"
@@ -144,18 +141,14 @@ const ProductsNavbar = ({ setRerenderProducts, handlePrint }) => {
           handleCancel={setShowDialogImport}
         /> */}
 
-
-        {/* Xuất file 
-          <div
-            onClick={() => {
-              // handlePrint();
-            }}
-            className="action-products-btn"
-          >
-            <i class="bx bxs-file-export"></i>Xuất file
-          </div> */}
-
-          
+        {/* <div
+          onClick={() => {
+            handlePrint();
+          }}
+          className="action-products-btn"
+        >
+          <i class="bx bxs-file-export"></i>Xuất file
+        </div> */}
       </div>
     </div>
   );

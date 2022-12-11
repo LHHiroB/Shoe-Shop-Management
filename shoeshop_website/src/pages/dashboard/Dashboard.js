@@ -293,11 +293,11 @@ const Dashboard = () => {
       </div>
       {/**table dashboard */}
       <div className="table-dashboard-container">
-        <div class="card">
-          <div class="card-header">
+        <div className="card">
+          <div className="card-header">
             <h3>Top 6 sản phẩm có doanh thu cao nhất trong ngày</h3>
           </div>
-          <div class="card-content">
+          <div className="card-content">
             <table id="dashboard-table">
               <thead>
                 <tr>

@@ -2,9 +2,8 @@ import React, { useState, useRef } from "react";
 import "./AddStaff.css";
 
 import TextField from "@mui/material/TextField";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import DatePicker from "@mui/lab/DatePicker";
+import DatePicker from "react-date-picker";
+
 import useFormStaff from "./useFormStaff";
 import validateStaff from "./validateStaff";
 import axios from "axios";
@@ -127,8 +126,9 @@ const AddStaff = ({ setShowFormAddStaff }) => {
             <span>Ngày sinh</span>
             <p className="add_staff-form-error">{errors.birthday}</p>
 
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
               <DatePicker
+                className="container__date"
+                format="dd/MM/yyyy"
                 inputFormat="dd/MM/yyyy"
                 ref={birthdayRef}
                 views={["day", "month", "year"]}
@@ -151,7 +151,6 @@ const AddStaff = ({ setShowFormAddStaff }) => {
                   />
                 )}
               />
-            </LocalizationProvider>
           </div>
           <div className="add_staff-form-row">
             <span>Mật khẩu</span>

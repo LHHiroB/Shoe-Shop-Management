@@ -108,12 +108,17 @@
     margin-left: 10px;
   }
   .user-date-picker {
+    margin-top: 4px;
     border-bottom: 1px solid gray;
+  }
+  
+  .react-date-picker__wrapper {
+    border: none !important;
   }
   .user-date-picker > * {
     width: 100%;
     font-size: 14px !important;
-    padding: 0 10px !important;
+    /* padding: 0 10px !important; */
   }
   .userUpdateTitle {
     font-size: 24px;

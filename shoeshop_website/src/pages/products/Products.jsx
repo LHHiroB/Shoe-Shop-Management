@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import ProductsNavbar from "./navbar/ProductsNavbar";
+import ProductsNavbar from "./products_navbar/ProductsNavbar";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -9,11 +9,11 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import axios from "axios";
-import "./Products.css";
+import "./products.css";
 
 import ModalUnstyled from "@mui/core/ModalUnstyled";
 import { styled } from "@mui/system";
-// import UpdateProduct from "./updateProduct/UpdateProduct";
+import UpdateProduct from "../products/updateProduct/UpdateProduct";
 import Dialog from "../../components/dialog/Dialog";
 import { Link } from "react-router-dom";
 // import { useReactToPrint } from "react-to-print";
@@ -82,7 +82,7 @@ const Products = () => {
   //get product from API
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/products/listProduct")
+      .get("https://clothesapp123.herokuapp.com/api/products/listProduct")
       .then((res) => {
         setProducts(res.data);
         setOriginProducts(res.data);
@@ -240,11 +240,11 @@ const Products = () => {
         }}
         BackdropComponent={Backdrop}
       >
-        {/* <UpdateProduct
+        <UpdateProduct
           product={selectedProduct}
           setShowFormUpdateProduct={setShowFormUpdateProduct}
           setProduct={setSelectedProduct}
-        /> */}
+        />
       </StyledModal>
       <div className="div_left">
         <div className="clothes-category-card">
@@ -378,12 +378,12 @@ const Products = () => {
                             );
                           })}
                           <TableCell
-                            // onClick={() => {
-                            //   console.log("update");
-                            //   setSelectedProduct(row);
-                            //   console.log(row);
-                            //   setShowFormUpdateProduct(true);
-                            // }}
+                            onClick={() => {
+                              console.log("update");
+                              setSelectedProduct(row);
+                              console.log(row);
+                              setShowFormUpdateProduct(true);
+                            }}
                           >
                             <i
                               style={{ fontSize: 18, color: "#0DB3E2" }}

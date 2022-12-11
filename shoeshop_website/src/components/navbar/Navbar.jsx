@@ -24,7 +24,7 @@ const NavBar = ({ rerender, currentTabIndex, setCurrentTabIndex }) => {
     <div>
       <div className="navbar">
         <div className="navbar__left">
-          <i class="bx bx-menu"></i>
+          <i className="bx bx-menu"></i>
           <p></p>
         </div>
 
