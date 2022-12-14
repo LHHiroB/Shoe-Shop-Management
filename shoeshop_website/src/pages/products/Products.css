@@ -6,7 +6,7 @@
 .clothes-category-card {
   margin-left: 10px;
   width: 100%;
-  animation: fade-in-ani 2s;
+  /* animation: fade-in-ani 2s; */
 }
 
 .product-btn-view-qr {
@@ -22,7 +22,7 @@
 
   font-size: 16px;
 }
-@keyframes fade-in-ani {
+/* @keyframes fade-in-ani {
   from {
     opacity: 0;
     transform: translate(0, -25%);
@@ -31,4 +31,4 @@
     transform: translate(0, 0%);
     opacity: 1;
   }
-}
+} */

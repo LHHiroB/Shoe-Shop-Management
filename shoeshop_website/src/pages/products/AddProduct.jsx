@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 // import "../staff/addstaff/AddStaff.css";
-import "../staff/AddStaff.css"
+import "../staff/AddStaff.css";
 import "./AddProduct.css";
 import axios from "axios";
 
@@ -13,9 +13,7 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
   const [avatar, setAvatar] = useState();
   const [categories, setCategories] = useState([]);
   const [categoryId, setCategoryId] = useState();
-  // const [qrImage, setQrImage] = useState(
-  //   "https://res.cloudinary.com/hoquanglinh/image/upload/v1639458680/Linh/cwq6qhmybgzhvpp58ytp.png"
-  // );
+ 
   const [product, setProduct] = useState({
     name: "",
     category: "Áo",
@@ -37,12 +35,14 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
   }, []);
 
   const [options, setOptions] = useState([
-    { id: 0, size: "36", quantity: 0 },
-    { id: 1, size: "37", quantity: 0 },
-    { id: 2, size: "38", quantity: 0 },
-    { id: 3, size: "39", quantity: 0 },
-    { id: 4, size: "40", quantity: 0 },
-    { id: 5, size: "41", quantity: 0 },
+    { id: 0, size: "37", quantity: 0 },
+    { id: 1, size: "38", quantity: 0 },
+    { id: 2, size: "39", quantity: 0 },
+    { id: 3, size: "40", quantity: 0 },
+    { id: 4, size: "41", quantity: 0 },
+    { id: 5, size: "42", quantity: 0 },
+   
+
   ]);
 
   const handleOptionChecked = (index) => {
@@ -139,7 +139,6 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
       )
       .then((res) => {
         console.log(res.data);
-        // setQrImage(res.data.qrCodeUrl);
         setProductId(res.data._id);
         setRerenderProducts(true);
         alert("Thêm sản phẩm thành công");
@@ -289,7 +288,7 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
             </div>
             <p className="add_product-form-error">{errors.size}</p>
           </div>
-          {/* <div className="add_product-form-row">
+          <div className="add_product-form-row">
             <span>Giá nhập hàng</span>
             <input
               pattern="[0-9]*"
@@ -299,7 +298,7 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
               onChange={handleChange}
             />
             <p className="add_product-form-error">{errors.originPrice}</p>
-          </div> */}
+          </div>
         </div>
       </div>
       <div className="add_product-form-images">
@@ -324,10 +323,7 @@ const AddProduct = ({ setRerenderProducts, setShowFormAddProduct }) => {
             alt=""
           />
         </div>
-        {/* <div className="add_product-form-image">
-          <p>Mã vạch</p>
-          <img style={{ height: 120, width: 120 }} src={qrImage} alt="" />
-        </div> */}
+        
       </div>
       <div className="add_product-btn-row">
         <button onClick={handleSubmit} className="add_product-btn-save">

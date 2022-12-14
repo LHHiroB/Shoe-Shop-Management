@@ -9,14 +9,14 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import axios from "axios";
-import "./Products.css";
+import "./products.css";
 
 import ModalUnstyled from "@mui/core/ModalUnstyled";
 import { styled } from "@mui/system";
 import UpdateProduct from "../products/updateProduct/UpdateProduct";
 import Dialog from "../../components/dialog/Dialog";
 import { Link } from "react-router-dom";
-// import { useReactToPrint } from "react-to-print";
+import { useReactToPrint } from "react-to-print";
 const StyledModal = styled(ModalUnstyled)`
   position: fixed;
   z-index: 1300;
@@ -65,9 +65,7 @@ const columns = [
 
 const Products = () => {
   const componentRef = useRef();
-  // const handlePrint = useReactToPrint({
-  //   content: () => componentRef.current,
-  // });
+  // test
   const [products, setProducts] = useState([]);
   const [originProducts, setOriginProducts] = useState([]);
   const [rerenderProducts, setRerenderProducts] = useState(false);
@@ -82,7 +80,7 @@ const Products = () => {
   //get product from API
   useEffect(() => {
     axios
-      .get("https://clothesapp123.herokuapp.com/api/products/listProduct")
+      .get("http://localhost:5000/api/products/listProduct")
       .then((res) => {
         setProducts(res.data);
         setOriginProducts(res.data);
@@ -117,52 +115,8 @@ const Products = () => {
     setProducts(productFilter);
   };
 
-  //filter product by shirts
+  // test search theo loại danh mục
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/api/products/listCategory", {
-        params: {
-          name: "Áo",
-        },
-        headers: {
-          "Content-Type": "multipart/form-data",
-          "Access-Control-Allow-Origin": "*",
-        },
-      })
-      .then((res) => {
-        console.log(res.data);
-        setShirts(res.data);
-      })
-      .catch((err) => {
-        if (err.response) {
-          console.log(err.response.data);
-        }
-      });
-  }, []);
-
-  //filter product by trousers
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/api/products/listCategory", {
-        params: {
-          name: "Quần",
-        },
-        headers: {
-          "Content-Type": "multipart/form-data",
-          "Access-Control-Allow-Origin": "*",
-        },
-      })
-      .then((res) => {
-        setTrousers(res.data);
-      })
-      .catch((err) => {
-        if (err.response) {
-          console.log(err.response.data);
-        }
-      });
-  }, []);
   //search product
   useEffect(() => {
     if (!searchText || !products) {
@@ -264,52 +218,14 @@ const Products = () => {
             </div>
           </div>
         </div>
-        <div className="clothes-category-card">
-          <div className="div_search">
-            <div className="header_search">Các loại áo</div>
-            <select
-              name="Áo"
-              onChange={handleFilterProductsByCategory}
-              onClick={handleFilterProductsByCategory}
-              className="selectbox"
-            >
-              <option value="all">Tất cả</option>
-              {shirts.map((shirt, index) => {
-                return (
-                  <option key={index} value={shirt.name}>
-                    {shirt.name}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-        </div>
 
-        <div className="clothes-category-card">
-          <div className="div_search">
-            <div className="header_search">Các loại quần</div>
-            <select
-              name="Quần"
-              onChange={handleFilterProductsByCategory}
-              onClick={handleFilterProductsByCategory}
-              className="selectbox"
-            >
-              <option value="all">Tất cả</option>
-              {trousers.map((trouser, index) => {
-                return (
-                  <option key={index} value={trouser.name}>
-                    {trouser.name}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-        </div>
-        <div className="product-btn-view-qr">
-          <Link to="/productQr">
-            <button className="product-btn-view-qr-btn">Xem mã vạch</button>
-          </Link>
-        </div>
+        {/* test các loại danh mục sp mv*/}
+        
+        <ProductsNavbar
+          // test
+          setRerenderProducts={setRerenderProducts}
+        />
+
       </div>
       <div className="div_right">
         <div className="col-9" style={{ padding: "10px 0px 10px 10px" }}>
@@ -422,10 +338,7 @@ const Products = () => {
           </Paper>
         </div>
 
-        <ProductsNavbar
-          // handlePrint={handlePrint}
-          setRerenderProducts={setRerenderProducts}
-        />
+        
       </div>
     </div>
   );
