@@ -9,7 +9,7 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import axios from "axios";
-import "./products.css";
+import "./Products.css";
 
 import ModalUnstyled from "@mui/core/ModalUnstyled";
 import { styled } from "@mui/system";
