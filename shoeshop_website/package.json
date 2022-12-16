@@ -23,6 +23,8 @@
     "file-saver": "^2.0.5",
     "moment": "^2.29.3",
     "qrcode": "^1.5.0",
+    "react-bootstrap": "^2.0.0-rc.1",
+    "react-chartjs-2": "^3.3.0",
     "react": "^18.2.0",
     "react-date-picker": "^9.1.0",
     "react-datepicker": "^4.8.0",

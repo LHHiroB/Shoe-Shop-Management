@@ -1,0 +1,26 @@
+.customers_navbar_container {
+  margin-left: 310px;
+  justify-content: space-between;
+}
+.list-action-customers-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.action-customers-btn {
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  color: #fff;
+  background-color: #4cb050;
+}
+.action-customers-btn:first-child {
+  margin-right: 10px;
+}
+.navbar__search{
+  margin-bottom: 1.2rem;
+  margin-left: 10px;
+}

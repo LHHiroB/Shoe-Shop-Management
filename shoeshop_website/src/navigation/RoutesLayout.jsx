@@ -3,17 +3,27 @@ import React, { useState } from "react";
 import Dashboard from "../pages/dashboard/Dashboard";
 // import Customers from "../pages/customers/Customers";
 // import Sales from "../pages/sales/Sales";
-import Products from "../pages/products/Products";
+// import Products from "../pages/products/Products";
 // import Orders from "../pages/orders/Orders";
 import Staff from "../pages/staff/Staff";
 // import Revenues from "../pages/revenues/Revenues";
+// import Dashboard from "../pages/dashboard/Dashboard";
+import Customers from "../pages/customers/Customers";
+import Sales from "../pages/sales/Sales";
+import Products from "../pages/products/Products";
+import Orders from "../pages/orders/Orders";
+// import Staff from "../pages/staff/Staff";
+import Revenues from "../pages/revenues/Revenues";
 // import Returns from "../pages/returns/Returns";
-// import Checkout from "../pages/sales/checkout/Checkout";
+import Checkout from "../pages/sales/checkout/Checkout";
 // import ReturnOrderDetail from "../pages/returns/return_order_detail/ReturnOrderDetail";
 // import ReturnBill from "../pages/returns/return_bill/ReturnBill";
 // import OrderDetail from "../pages/orders/orderdetail/OrderDetail";
 import EditProfile from "../pages/user/editprofile/EditProfile";
 import ChangePassWord from "../pages/user/changepassword/ChangePassWord";
+import OrderDetail from "../pages/orders/orderdetail/OrderDetail";
+// import EditProfile from "../pages/user/editprofile/EditProfile";
+// import ChangePassWord from "../pages/user/changepassword/ChangePassWord";
 // import ProductQr from "../pages/products/product_qr/ProductQr";
 const RoutesLayout = ({ rerender, setRerender }) => {
   const user = localStorage.getItem("user");
@@ -21,13 +31,13 @@ const RoutesLayout = ({ rerender, setRerender }) => {
   return (
     <Switch>
       <Route path="/customers">
-        {/* <Customers></Customers> */}
+        <Customers></Customers>
       </Route>
       <Route path="/sales">
-        {/* <Sales /> */}
+        <Sales />
       </Route>
       <Route path="/checkout">
-        {/* <Checkout /> */}
+        <Checkout />
       </Route>
       <Route path="/products">
         <Products />
@@ -36,10 +46,10 @@ const RoutesLayout = ({ rerender, setRerender }) => {
         {/* <ProductQr /> */}
       </Route>
       <Route path="/orders">
-        {/* <Orders /> */}
+        <Orders />
       </Route>
       <Route path="/orderDetail">
-        {/* <OrderDetail /> */}
+        <OrderDetail />
       </Route>
       <Route path="/staffs">
         <Staff />
@@ -48,7 +58,7 @@ const RoutesLayout = ({ rerender, setRerender }) => {
         <EditProfile rerender={rerender} setRerender={setRerender} />
       </Route>
       <Route path="/revenues">
-        {/* <Revenues /> */}
+        <Revenues />
       </Route>
       <Route path="/changePassWord">
         <ChangePassWord />
