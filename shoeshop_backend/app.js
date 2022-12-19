@@ -28,8 +28,6 @@ app.use("/api/customers", customerRouter);
 var orderRouter = require("./router/orderRouter");
 app.use("/api/orders", orderRouter);
 
-var returnOrder = require("./router/returnOrderRouter");
-app.use("/api/returnOrder", returnOrder);
 var productRouter = require("./router/productRouter");
 app.use("/api/products", productRouter);
 
