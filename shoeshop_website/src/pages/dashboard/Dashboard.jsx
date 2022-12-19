@@ -7,7 +7,7 @@ import dashboardOrderIcon from "../../assets/images/dashboardOrderIcon1.png";
 import dashboardCostIcon from "../../assets/images/dashboardCost.png";
 import marginIcon from "../../assets/images/dashboardRevenueIcon.png";
 // import BarChart from "../../components/barchart/BarChart";
-// import { LineChart } from "../../components/linechart/LineChart";
+import { LineChart } from "../../components/linechart/linechart";
 import axios from "axios";
 const Dashboard = () => {
   const [revenueToday, setRevenueToday] = useState(0);
@@ -83,8 +83,8 @@ const Dashboard = () => {
       });
   }, []);
 
-  //console.log({ totalCustomerThisWeek });
-  //get customer last week
+  // console.log({ totalCustomerThisWeek });
+  // get customer last week
   useEffect(() => {
     axios
       .get(
@@ -287,17 +287,17 @@ const Dashboard = () => {
             <h3 className="title-header">Số khách ghé mua</h3>
           </div>
           <div className="div-char">
-            {/* <LineChart data={dataCustomer} /> */}
+            <LineChart data={dataCustomer} />
           </div>
         </div>
       </div>
-      {/**table dashboard */}
+      {/* *table dashboard */}
       <div className="table-dashboard-container">
-        <div className="card">
-          <div className="card-header">
+        <div class="card">
+          <div class="card-header">
             <h3>Top 6 sản phẩm có doanh thu cao nhất trong ngày</h3>
           </div>
-          <div className="card-content">
+          <div class="card-content">
             <table id="dashboard-table">
               <thead>
                 <tr>
@@ -329,14 +329,9 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      {/**end table dashboard */}
-      {/* <div className="dashboard-chart">
-        <BarChart
-          title="Top 6 sản phẩm bán chạy theo số lượng "
-          data={dataClothes}
-          horizontal
-        />
-      </div> */}
+      {/* *end table dashboard */}
+      {/* test */}
+      
     </div>
   );
 };
