@@ -29,6 +29,7 @@
     "react-date-picker": "^9.1.0",
     "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
+    "react-number-format": "^4.9.3",
     "react-router-dom": "^5.3.4",
     "react-scripts": "5.0.1",
     "react-to-print": "^2.14.1",

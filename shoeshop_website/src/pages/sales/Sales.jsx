@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import AddCustomer from "./AddCustomer/AddCustomer";
 import axios from "axios";
-// import ComboBox from "../../components/combobox/Combobox";
+import ComboBox from "../../components/combobox/Combobox";
 import { Link } from "react-router-dom";
 // import QrReader from "react-qr-reader";
 import "./sales.css";
-// import NumberFormat from "react-number-format";
+import NumberFormat from "react-number-format";
 const Sales = () => {
   let existCurrentCustomer;
   let existCurrentOrders;
@@ -307,7 +307,7 @@ const Sales = () => {
               <i className="bx bx-search"></i>
             </div>
           </div>
-          <div className="sales-qr-btn">
+          {/* <div className="sales-qr-btn">
             <button
               onClick={() => {
                 setShowScanQrcode(!showScanQrCode);
@@ -316,13 +316,13 @@ const Sales = () => {
               {showScanQrCode && "Tắt webcam"}
               {!showScanQrCode && "Quét mã vạch"}
             </button>
-          </div>
+          </div> */}
           <div className="sales-filter">
-            {/* <ComboBox
+            <ComboBox
               categoryActive={categoryActive}
               setCategoryActive={setCategoryActive}
               options={categories}
-            /> */}
+            />
           </div>
         </div>
         <div className="tab-bills">
@@ -625,9 +625,9 @@ const Sales = () => {
               value={scroreInput}
               onChange={handleScoreInput}
               className="sales-score-used"
-              type="text"
+              type="number"
             />
-          </div>
+          </div>  
           <div className="sales-prices-item">
             <p>Giảm giá</p>
             <b>{`${getDecreasePrice().toLocaleString("en")}đ`}</b>
@@ -640,7 +640,7 @@ const Sales = () => {
             <span style={{ color: "gray", fontWeight: "bold" }}>
               Tiền khách đưa:
             </span>
-            {/* <NumberFormat
+            <NumberFormat
               thousandSeparator={true}
               suffix=" đ"
               value={guestMoney.guestMoneyFormat}
@@ -660,13 +660,13 @@ const Sales = () => {
                 textAlign: "right",
               }}
               type="text"
-            /> */}
+            />
           </div>
           <div className="refund-payment-row">
             <span style={{ color: "gray", fontWeight: "bold" }}>
               Tiền thối:
             </span>
-            {/* {guestMoney.guestMoneyValue - getTotalPrice() > 0 && (
+            {guestMoney.guestMoneyValue - getTotalPrice() > 0 && (
               <NumberFormat
                 readOnly
                 thousandSeparator={true}
@@ -680,7 +680,7 @@ const Sales = () => {
                 }}
                 type="text"
               />
-            )} */}
+            )}
           </div>
         </div>
 
