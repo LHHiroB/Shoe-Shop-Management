@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import TextField from "@mui/material/TextField";
-// import AdapterDateFns from "@mui/lab/AdapterDateFns";
-// import LocalizationProvider from "@mui/lab/LocalizationProvider";
-// import DatePicker from "@mui/lab/DatePicker";
+import DatePicker from "react-date-picker";
 import "./Orders.css";
 import Checkbox from "@mui/material/Checkbox";
 import ModalUnstyled from "@mui/core/ModalUnstyled";
 import axios from "axios";
-// import "react-datepicker/dist/react-datepicker.css";
 
 import { styled } from "@mui/system";
 import OrderDetail from "./orderdetail/OrderDetail";
@@ -269,8 +266,8 @@ const Orders = () => {
             <h4 className="order-card-heading">Thời gian</h4>
             <div className="order-card-body">
               <div className="order-card-date-picker">
-                {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
                   <DatePicker
+                    format="dd/MM/yyyy"
                     inputFormat="dd/MM/yyyy"
                     views={["day", "month", "year"]}
                     InputProps={{
@@ -291,12 +288,11 @@ const Orders = () => {
                       />
                     )}
                   />
-                </LocalizationProvider> */}
               </div>
               <div className="order-card-date-picker">
-                {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
                   <DatePicker
                     minDate={fromDate}
+                    format="dd/MM/yyyy"
                     inputFormat="dd/MM/yyyy"
                     views={["day", "month", "year"]}
                     label={toDate ? "" : "Đến ngày"}
@@ -318,42 +314,10 @@ const Orders = () => {
                       />
                     )}
                   />
-                </LocalizationProvider> */}
               </div>
             </div>
           </div>
-          <div className="order-card">
-            <h4 className="order-card-heading">Trạng thái</h4>
-
-            <div className="order-card-item">
-              <Checkbox
-                onChange={() => {
-                  let newListStatus = orderFilter.listStatus;
-                  newListStatus[0].checked = !newListStatus[0].checked;
-                  setOrderFilter({
-                    ...orderFilter,
-                    listStatus: newListStatus,
-                  });
-                }}
-                value={orderFilter.listStatus[0]}
-              />
-              <span>Đã thanh toán</span>
-            </div>
-            {/* <div className="order-card-item">
-              <Checkbox
-                value={orderFilter.listStatus[1]}
-                onChange={() => {
-                  let newListStatus = orderFilter.listStatus;
-                  newListStatus[1].checked = !newListStatus[1].checked;
-                  setOrderFilter({
-                    ...orderFilter,
-                    listStatus: newListStatus,
-                  });
-                }}
-              />
-              <span>Đã trả hàng</span>
-            </div> */}
-          </div>
+          {/* test */}
         </div>
         <div className="col-9" style={{ padding: "10px 0px 10px 10px" }}>
           <div class="order-table-container">
