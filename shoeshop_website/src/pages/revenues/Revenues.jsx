@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import BarChart from "./BarChart/BarChart";
 import "./revenues.css";
-import "react-datepicker/dist/react-datepicker.css";
+
 import TextField from "@mui/material/TextField";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import DatePicker from "@mui/lab/DatePicker";
+import DatePicker from "react-date-picker";
 import axios from "axios";
 import TableReport from "./TableReport/TableReport";
+
 // import ExportCSV from "./Excel/Excel";
 const dateNow = new Date();
 const listClothes = [];
@@ -247,9 +246,9 @@ const Revenues = () => {
         <div className="col-3">
           <div className="revuenues-filter">
             <h2 className="revenues-title">Báo cáo bán hàng</h2>
-            <div className="revenues-card">
-              <h3 className="revenues-card-title">Kiểu hiển thị</h3>
-              <div className="revenues-card-row">
+            {/* <div className="revenues-card"> */}
+              {/* <h3 className="revenues-card-title">Kiểu hiển thị</h3> */}
+              {/* <div className="revenues-card-row">
                 <input
                   checked={displayTypeSelect === "chart"}
                   type="radio"
@@ -267,8 +266,8 @@ const Revenues = () => {
                   }}
                 />
                 <span>Biểu đồ doanh thu</span>
-              </div>
-              <div className="revenues-card-row">
+              </div> */}
+              {/* <div className="revenues-card-row">
                 <input
                   checked={displayTypeSelect === "report"}
                   type="radio"
@@ -281,8 +280,8 @@ const Revenues = () => {
                   }}
                 />
                 <span>Báo cáo số liệu</span>
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
             {displayTypeSelect === "report" ? (
               <div className="revenues-card">
                 <h3 className="revenues-card-title">Loại báo cáo</h3>
@@ -515,7 +514,6 @@ const Revenues = () => {
                   <span>Tùy chỉnh</span>
                 </div>
                 <div className="revenues-card-row">
-                  <LocalizationProvider dateAdapter={AdapterDateFns}>
                     <DatePicker
                       inputFormat="dd/MM/yyyy"
                       views={["day", "month", "year"]}
@@ -538,10 +536,8 @@ const Revenues = () => {
                         />
                       )}
                     />
-                  </LocalizationProvider>
                 </div>
                 <div className="revenues-card-row">
-                  <LocalizationProvider dateAdapter={AdapterDateFns}>
                     <DatePicker
                       minDate={fromDate}
                       inputFormat="dd/MM/yyyy"
@@ -566,7 +562,6 @@ const Revenues = () => {
                         />
                       )}
                     />
-                  </LocalizationProvider>
                 </div>
                 <div className="revenues-card-row submit">
                   <button

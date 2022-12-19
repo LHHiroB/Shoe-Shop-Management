@@ -7,7 +7,7 @@ import dashboardOrderIcon from "../../assets/images/dashboardOrderIcon1.png";
 import dashboardCostIcon from "../../assets/images/dashboardCost.png";
 import marginIcon from "../../assets/images/dashboardRevenueIcon.png";
 // import BarChart from "../../components/barchart/BarChart";
-import { LineChart } from "../../components/linechart/linechart";
+import { LineChart } from "../../components/linechart/LineChart";
 import axios from "axios";
 const Dashboard = () => {
   const [revenueToday, setRevenueToday] = useState(0);

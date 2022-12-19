@@ -4,7 +4,6 @@ import { useReactToPrint } from "react-to-print";
 import { useLocation, useHistory } from "react-router-dom";
 import QRCode from "qrcode";
 import axios from "axios";
-import { Alert } from "react-bootstrap";
 const Checkout = () => {
   let history = useHistory();
   let location = useLocation();
@@ -96,13 +95,14 @@ const Checkout = () => {
       </div>
       <div className="invoice-info">
         <div className="invoice-info-row">
-          <h3>Shop quần áo The Clothes</h3>
+          <h3>4HShoe Shop</h3>
           <p>Đường Vành Đai, Kí túc xá Đại học quốc gia khu B</p>
           <p>Phường Đông Hoà, thị xã Dĩ An, tỉnh Bình Dương</p>
         </div>
         <div className="invoice-info-right">
           <div className="invoice-qrcode">
-            <img src={qrImage} alt="" />
+            {/* <img src={qrImage} alt="" /> */}
+            {/* text */}
           </div>
           <div className="invoice-info-p">
             <p>Khách hàng: {order.customer.name}</p>
@@ -145,7 +145,7 @@ const Checkout = () => {
       <div className="table-footer">
         <div className="table-footer-left">
           <p>
-            Cảm ơn quý khách đã mua hàng tại <b>The Clothes</b>
+            Cảm ơn quý khách đã mua hàng tại <b>4HShoe Shop</b>
           </p>
         </div>
         <div className="table-footer-right">
