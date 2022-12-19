@@ -6,8 +6,8 @@ import star from "../../assets/images/star.png";
 import dashboardOrderIcon from "../../assets/images/dashboardOrderIcon1.png";
 import dashboardCostIcon from "../../assets/images/dashboardCost.png";
 import marginIcon from "../../assets/images/dashboardRevenueIcon.png";
-import BarChart from "../../components/barchart/BarChart";
-import { LineChart } from "../../components/linechart/LineChart";
+// import BarChart from "../../components/barchart/BarChart";
+import { LineChart } from "../../components/linechart/linechart";
 import axios from "axios";
 const Dashboard = () => {
   const [revenueToday, setRevenueToday] = useState(0);
@@ -330,13 +330,8 @@ const Dashboard = () => {
         </div>
       </div>
       {/* *end table dashboard */}
-      <div className="dashboard-chart">
-        <BarChart
-          title="Top 6 sản phẩm bán chạy theo số lượng "
-          data={dataClothes}
-          horizontal
-        />
-      </div>
+      {/* test */}
+      
     </div>
   );
 };
