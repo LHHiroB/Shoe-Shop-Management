@@ -3,7 +3,6 @@ const router = express.Router();
 
 const { Category } = require("../models/product");
 const { Product } = require("../models/product");
-const generateQR = require("../middlewares/gererateQR");
 const { multerUploads, multerExcel } = require("../middlewares/multer");
 const { multipleMulterUploads } = require("../middlewares/multiplefileMulter");
 const { cloudinary } = require("../config/cloudinary");
@@ -143,7 +142,7 @@ router.post("/import", multerExcel, async (req, res) => {
       deleteFile();
       return res
         .status(500)
-        .send("File không có dữ liệu hoặc không đúng định dạng!!");
+        .send("File không có dữ liệu hoặc không đúng định dạng!");
     }
 
     //Import data
@@ -160,16 +159,6 @@ router.post("/import", multerExcel, async (req, res) => {
           .then(async (newCategory) => {
             console.log("Thêm category thành công: ", newCategory);
 
-            const fileQrCode = await generateQR(
-              JSON.stringify({
-                name: excelData[i].name,
-                salePrice: excelData[i].salePrice,
-                discount: excelData[i].discount,
-              })
-            );
-            const qrCodeImage = await cloudinary.uploader.upload(fileQrCode, {
-              folder: "Hue",
-            });
             let product = Product({
               categoryId: newCategory._id,
               name: excelData[i].name,
@@ -178,7 +167,6 @@ router.post("/import", multerExcel, async (req, res) => {
               salePrice: excelData[i].salePrice,
               originPrice: excelData[i].originPrice,
               imageDisplay: urlDefault,
-              qrCodeUrl: qrCodeImage ? qrCodeImage.url : "",
               options: [
                 {
                   size: excelData[i].size,
@@ -269,19 +257,6 @@ router.post("/import", multerExcel, async (req, res) => {
                 console.log("Push size mới thành công:", excelData[i]);
                 console.log("Sản phẩm sau cập nhật:", result);
               } else {
-                const fileQrCode = await generateQR(
-                  JSON.stringify({
-                    name: excelData[i].name,
-                    salePrice: excelData[i].salePrice,
-                    discount: excelData[i].discount,
-                  })
-                );
-                const qrCodeImage = await cloudinary.uploader.upload(
-                  fileQrCode,
-                  {
-                    folder: "Hue",
-                  }
-                );
                 console.log(
                   "Không tồn tại product name này => tạo product mới"
                 );
@@ -293,7 +268,6 @@ router.post("/import", multerExcel, async (req, res) => {
                   salePrice: excelData[i].salePrice,
                   originPrice: excelData[i].originPrice,
                   imageDisplay: urlDefault,
-                  qrCodeUrl: qrCodeImage ? qrCodeImage.url : "",
                   options: [
                     {
                       size: excelData[i].size,
@@ -394,13 +368,6 @@ router.delete("/deleteOnebyId/:id", async (req, res) => {
 });
 
 router.post("/add", multerUploads, async (req, res) => {
-  const fileQrCode = await generateQR(
-    JSON.stringify({
-      name: req.body.name,
-      salePrice: req.body.salePrice,
-      discount: req.body.discount,
-    })
-  );
   const urlDefault =
     "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2xvdGhlc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80";
   if (req.file) {
@@ -415,10 +382,6 @@ router.post("/add", multerUploads, async (req, res) => {
       folder: "Hue",
     });
   }
-
-  var qrCodeImage = await cloudinary.uploader.upload(fileQrCode, {
-    folder: "Hue",
-  });
 
   if (req.body.newCategory == "true") {
     console.log("Chạy new category");
@@ -436,7 +399,6 @@ router.post("/add", multerUploads, async (req, res) => {
           salePrice: req.body.salePrice,
           originPrice: req.body.originPrice,
           imageDisplay: image ? image.url : urlDefault,
-          qrCodeUrl: qrCodeImage ? qrCodeImage.url : "",
           options: req.body.options,
         });
         product.save().then((newProduct) => {
@@ -463,7 +425,6 @@ router.post("/add", multerUploads, async (req, res) => {
       originPrice: req.body.originPrice,
 
       imageDisplay: image ? image.url : urlDefault,
-      qrCodeUrl: qrCodeImage ? qrCodeImage.url : "",
       options: req.body.options,
     });
     await product
@@ -484,7 +445,6 @@ router.post("/add", multerUploads, async (req, res) => {
             }
           );
           await cloudinary.uploader.destroy(
-            qrCodeImage.public_id,
             function (err, result) {
               if (err) {
                 res.status(500).send(err);
@@ -519,22 +479,6 @@ router.put("/updateProduct/:id", multerUploads, async (req, res) => {
       folder: "Hue",
     });
     fieldToUpdate = { ...fieldToUpdate, imageDisplay: imageDisplay.url };
-  }
-  //If name exist on system=> no create QR code, else create QR code
-  if (req.body.name && prd.name !== req.body.name) {
-    const fileQrCode = await generateQR(
-      JSON.stringify({
-        name: req.body.name,
-        salePrice: req.body.salePrice,
-        discount: req.body.discount,
-      })
-    );
-    var qrCodeImage = await cloudinary.uploader.upload(fileQrCode, {
-      folder: "Hue",
-    });
-    const qrCodeUrl = qrCodeImage.url;
-    const name = req.body.name;
-    fieldToUpdate = { ...fieldToUpdate, qrCodeUrl, name };
   }
 
   fieldToUpdate = {

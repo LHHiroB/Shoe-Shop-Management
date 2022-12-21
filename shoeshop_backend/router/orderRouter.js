@@ -4,8 +4,6 @@ const { Customer } = require("../models/customer");
 const router = express.Router();
 const { Order } = require("../models/order");
 const { OrderDetail } = require("../models/order");
-const generateQR = require("../middlewares/gererateQR");
-const { cloudinary } = require("../config/cloudinary");
 const moment = require("moment");
 router.get("/list", async (req, res) => {
   var orders = await Order.find()
@@ -105,26 +103,20 @@ router.post("/", async function (req, res) {
       console.log(err);
       res.status(500).send(err);
     } else {
-      const fileQrCode = await generateQR(
         JSON.stringify({
           orderId: order._id,
           customerId: req.body.customer,
           orderTotal: req.body.orderTotal,
           discount: req.body.discount,
           point: req.body.point,
-        })
-      );
-      var qrCodeImage = await cloudinary.uploader.upload(fileQrCode, {
-        folder: "Hue",
-      });
-      const qrCodeUrl = qrCodeImage.url;
-      orderWithQr = await Order.findOneAndUpdate(
+        });
+      
+      orderbyUser = await Order.findOneAndUpdate(
         { _id: order.id },
-        { qrCodeUrl: qrCodeUrl },
         { returnOriginal: false }
       );
-      console.log(orderWithQr);
-      res.status(200).send(orderWithQr);
+      console.log(orderbyUser);
+      res.status(200).send(orderbyUser);
       var updateInfo = await Customer.updateOne(
         {
           _id: req.body.customer,

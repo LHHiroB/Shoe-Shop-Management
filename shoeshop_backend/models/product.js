@@ -43,9 +43,6 @@ let product_Schema = new Schema({
   imageDisplay: {
     type: String,
   },
-  qrCodeUrl: {
-    type: String,
-  },
   options: [
     {
       size: {

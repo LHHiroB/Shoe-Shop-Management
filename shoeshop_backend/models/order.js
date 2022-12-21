@@ -27,9 +27,6 @@ let order_Schema = new Schema({
   orderTotal: {
     type: Number,
   },
-  qrCodeUrl: {
-    type: String,
-  },
   orderDetails: [
     {
       type: mongoose.Schema.Types.ObjectId,

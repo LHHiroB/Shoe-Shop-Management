@@ -115,8 +115,6 @@ router.get("/getUserByPosition/", function (req, res) {
       });
   }
 });
-//save QrImage Url
-
 // Register
 router.post("/register", multerUploads, async (req, res) => {
   const urlDefault =
