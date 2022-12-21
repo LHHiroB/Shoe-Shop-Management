@@ -31,6 +31,24 @@ var spec =
     schemes: ["http"],    // Sử dụng scheme gì? HTTP, HTTPS?
     paths: {
 //Users 
+        "/users/": {    // Đường dẫn. Kết hợp với host và basePath sẽ thành localhost:3000/api/users/login
+            post: {        // Phương thức gửi request: get, post, put, delete
+                tags: ["users"],
+                summary: "Tài khoản users",
+                description: "",
+                operationId: "",
+                consumes: ["multipart/form-data"],    // Loại dữ liệu gửi đi
+                produces: ["application/json"],       // Loại dữ liệu trả về
+                parameters: [               // Các tham số
+
+                ],
+                responses: {
+                },
+                security: [
+                    
+                ]
+            }
+        },
         "/users/login": {    // Đường dẫn. Kết hợp với host và basePath sẽ thành localhost:3000/api/users/login
             post: {        // Phương thức gửi request: get, post, put, delete
                 tags: ["users"],
@@ -62,6 +80,9 @@ var spec =
                 responses: {
                     422: {
                         description: "Rất tiếc, mật khẩu của bạn không đúng. Vui lòng kiểm tra lại mật khẩu."
+                    },
+                    400: {
+                        description: "Vui lòng nhập tài khoản"
                     },
                     200: {
                         description: ""
@@ -101,6 +122,9 @@ var spec =
                     }
                 ],
                 responses: {
+                    422: {
+                        description: "Rất tiếc, mật khẩu của bạn không đúng. Vui lòng kiểm tra lại mật khẩu."
+                    },
                     200: {
                         description: ""
                     },
@@ -615,7 +639,12 @@ var spec =
                     }
                 ],
                 responses: {
-                    
+                    200: {
+
+                    },
+                    500: {
+                        description: "Lỗi server"
+                    }
                 },
                 security: [
                     
@@ -635,7 +664,12 @@ var spec =
                 
                 ],
                 responses: {
-                    
+                    200: {
+                        
+                    },
+                    500: {
+                        description: "Bad server"
+                    }
                 },
                 security: [
                     
@@ -654,7 +688,12 @@ var spec =
                 
                 ],
                 responses: {
-                    
+                    200: {
+                        
+                    },
+                    500: {
+                        description: "Lỗi server"
+                    }
                 },
                 security: [
                     
@@ -988,7 +1027,12 @@ var spec =
                     }
                 ],
                 responses: {
-                    
+                    200: {
+                        
+                    },
+                    500: {
+                        description: "Bad server"
+                    }
                 },
                 security: [
                     
@@ -1007,7 +1051,12 @@ var spec =
                     
                 ],
                 responses: {
-                    
+                    200: {
+                        
+                    },
+                    500: {
+                        description: "Bad server"
+                    }
                 },
                 security: [
                     
@@ -1070,7 +1119,12 @@ var spec =
                     }
                 ],
                 responses: {
-                    
+                    200: {
+                        
+                    },
+                    500: {
+                        description: "Bad server"
+                    }
                 },
                 security: [
                     
@@ -1089,7 +1143,12 @@ var spec =
                     
                 ],
                 responses: {
-                    
+                    200: {
+                        
+                    },
+                    500: {
+                        description: "Bad server"
+                    }
                 },
                 security: [
                     
@@ -1108,7 +1167,12 @@ var spec =
                     
                 ],
                 responses: {
-                    
+                    200: {
+                        description: "Import dữ liệu thành công"
+                    },
+                    500: {
+                        description: "File không có dữ liệu hoặc không đúng định dạng!"
+                    }
                 },
                 security: [
                     
