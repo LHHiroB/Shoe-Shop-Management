@@ -1,0 +1,146 @@
+.order-detail-container {
+    background-color: #eeeeee;
+    margin-top: -40px;
+    margin-left: -20px;
+    margin-right: -25px;
+    padding-right: 20px;
+    min-height: 100vh;
+    padding-top: 20px;
+    padding-bottom: 30px;
+  }
+  .order-detail-container-heading {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-right: 340px;
+  }
+  
+  .order-detail-btn-exit {
+    font-weight: bold;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 5px;
+    background-color: rgb(3, 169, 244);
+    margin-right: 10px;
+  }
+  
+  .order-detail-container-body {
+    display: flex;
+    padding-left: 25px;
+  }
+  .order-detail-container-body-left {
+    width: 70%;
+  
+    overflow-y: auto;
+  }
+  
+  .order-detail-container-body-right {
+    width: 30%;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .order-detail-container-body-left-list {
+    width: 100%;
+  
+    background-color: #fff;
+    padding: 10px;
+  }
+  .order-detail-card {
+    position: relative;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+  }
+  .order-detail-delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 17px;
+    cursor: pointer;
+  }
+  .order-detail-card-left {
+    width: 20%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .order-detail-card-left-img {
+    width: 100%;
+    height: 80px;
+    margin-right: 10px;
+  }
+  .order-detail-card-left-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .order-detail-card-middle {
+    width: 80%;
+  }
+  .order-detail-card-middle > b {
+    padding: 5px;
+    font-size: 15px;
+  }
+  .order-detail-card-middle > p {
+    padding: 5px;
+    font-size: 17px;
+    margin-top: 5px;
+  }
+  
+  .order-detail-card-middle-content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .order-detail-card-middle-desc {
+    display: flex;
+    align-items: center;
+  }
+  .order-detail-card-middle-desc-item {
+    padding-right: 30px;
+    padding-left: 5px;
+    padding-top: 10px;
+    font-size: 14px;
+  }
+  
+  .refund-payment-card {
+    width: 320px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  .refund-payment-card:first-child {
+    margin-bottom: 30px;
+  }
+  .refund-payment-row {
+    padding: 10px;
+  }
+  .refund-payment-btn {
+    background: rgb(255, 66, 78);
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    color: #fff;
+    font-weight: bold;
+    margin: 0 20px;
+    margin-top: 20px;
+  
+    font-size: 18px;
+  }
+  .refund-payment-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .refund-payment-row > input {
+    width: 100px;
+  
+    border-bottom: 1px solid #ccc;
+  }
+  
