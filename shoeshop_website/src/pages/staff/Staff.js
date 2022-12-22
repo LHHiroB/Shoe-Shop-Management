@@ -75,7 +75,7 @@ const Staff = (props) => {
   const [showDialogDelete, setShowDialogDelete] = useState(false);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/users")
+      .get("https://deloy-backend-shoeshop.onrender.com/api/users")
       .then((res) => {
         setStaffs(res.data);
         setOriginStaff(res.data);
@@ -107,7 +107,7 @@ const Staff = (props) => {
   }, [textSearch, originStaffs]);
   const getAllStaff = () => {
     axios
-      .get("http://localhost:5000/api/users")
+      .get("https://deloy-backend-shoeshop.onrender.com/api/users")
       .then((res) => {
         setStaffs(res.data);
       })
@@ -124,7 +124,7 @@ const Staff = (props) => {
   //filter staffs by position
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/users/getUserByPosition", {
+      .get("https://deloy-backend-shoeshop.onrender.com/api/users/getUserByPosition", {
         params: {
           position: position,
         },
@@ -147,7 +147,7 @@ const Staff = (props) => {
   const handleDeleteStaff = () => {
     axios
       .delete(
-        `http://localhost:5000/api/users/deleteOnebyId/${selectedStaff._id}`
+        `https://deloy-backend-shoeshop.onrender.com/api/users/deleteOnebyId/${selectedStaff._id}`
       )
       .then((res) => {
         handleCloseDialog();

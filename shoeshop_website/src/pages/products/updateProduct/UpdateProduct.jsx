@@ -17,7 +17,7 @@ const UpdateProduct = ({ product, setProduct, setShowFormUpdateProduct }) => {
   //get All cateogories
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/products/getAllCategories")
+      .get("https://deloy-backend-shoeshop.onrender.com/api/products/getAllCategories")
       .then((res) => {
         setCategories(res.data);
       });
@@ -117,7 +117,7 @@ const UpdateProduct = ({ product, setProduct, setShowFormUpdateProduct }) => {
     //post to API
     axios
       .put(
-        `http://localhost:5000/api/products/updateProduct/${product._id}`,
+        `https://deloy-backend-shoeshop.onrender.com/api/products/updateProduct/${product._id}`,
         formProduct,
         {
           headers: {

@@ -173,7 +173,7 @@ const Revenues = () => {
   }
   useEffect( () => {
     axios
-      .get("http://localhost:5000/api/orders/list")
+      .get("https://deloy-backend-shoeshop.onrender.com/api/orders/list")
       .then((res) => {
         setOrders(res.data);
         setDataRevenueByMonthYear(
@@ -189,7 +189,7 @@ const Revenues = () => {
   }, []);
   // useEffect(() => {
   //   axios
-  //     .get("http://localhost:5000/api/orders/list")
+  //     .get("https://deloy-backend-shoeshop.onrender.com/api/orders/list")
   //     .then(async(res) => {
   //       setOrders(res.data);
   //       setDataRevenueByMonthYear(
@@ -205,7 +205,7 @@ const Revenues = () => {
   //   })
   async function ReturnReport() {
     await axios
-      .get("http://localhost:5000/api/products/return")
+      .get("https://deloy-backend-shoeshop.onrender.com/api/products/return")
       .then(async (res) => {
         setReportProduct(res.data);
       })
@@ -215,7 +215,7 @@ const Revenues = () => {
   }
   async function SellProductReport() {
     await axios
-      .get("http://localhost:5000/api/products/sell")
+      .get("https://deloy-backend-shoeshop.onrender.com/api/products/sell")
       .then(async (res) => {
         setReportProduct(res.data);
       })
@@ -227,7 +227,7 @@ const Revenues = () => {
     console.log(fromDate);
     console.log(toDate);
     await axios
-      .post("http://localhost:5000/api/products/sellbyDate", {
+      .post("https://deloy-backend-shoeshop.onrender.com/api/products/sellbyDate", {
         fromDate: fromDate,
         toDate: toDate,
       })

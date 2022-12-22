@@ -86,7 +86,7 @@ const Orders = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/orders/list")
+      .get("https://deloy-backend-shoeshop.onrender.com/api/orders/list")
       .then((res) => {
         setOrders(
           res.data.filter(

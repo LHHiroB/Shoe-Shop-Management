@@ -10,7 +10,7 @@ const Login = ({ setIsAuticated }) => {
   const [errorLogin, setErorLogin] = useState("");
   const submitForm = () => {
     axios
-      .post("http://localhost:5000/api/users/login", user)
+      .post("https://deloy-backend-shoeshop.onrender.com/api/users/login", user)
       .then((res) => {
         localStorage.setItem("user", JSON.stringify(res.data));
         setIsAuticated(true);

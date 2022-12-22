@@ -21,7 +21,7 @@ const Dashboard = () => {
   useEffect(() => {
     axios
       .get(
-        "http://localhost:5000/api/orders/revenue/revenueToday"
+        "https://deloy-backend-shoeshop.onrender.com/api/orders/revenue/revenueToday"
       )
       .then((res) => {
         setRevenueToday(res.data[0]?.total || 0);
@@ -30,7 +30,7 @@ const Dashboard = () => {
   useEffect(() => {
     axios
       .get(
-        "http://localhost:5000/api/orders/revenue/getExpensiveToday"
+        "https://deloy-backend-shoeshop.onrender.com/api/orders/revenue/getExpensiveToday"
       )
       .then((res) => {
         setExpensiveToday(res.data[0]?.totalExpensive || 0);
@@ -39,7 +39,7 @@ const Dashboard = () => {
   useEffect(() => {
     axios
       .get(
-        "http://localhost:5000/api/orders/revenue/getCountOrderToday"
+        "https://deloy-backend-shoeshop.onrender.com/api/orders/revenue/getCountOrderToday"
       )
       .then((res) => {
         setCountNumberToday(res.data[0]?.countOrder || 0);
@@ -49,7 +49,7 @@ const Dashboard = () => {
   useEffect(() => {
     axios
       .get(
-        "http://localhost:5000/api/customers/getTopCustomerByPoint/1"
+        "https://deloy-backend-shoeshop.onrender.com/api/customers/getTopCustomerByPoint/1"
       )
       .then((res) => {
         setTop1Customer({
@@ -63,7 +63,7 @@ const Dashboard = () => {
   useEffect(() => {
     axios
       .get(
-        "http://localhost:5000/api/orders/revenue/getTotalCustomerByThisWeek"
+        "https://deloy-backend-shoeshop.onrender.com/api/orders/revenue/getTotalCustomerByThisWeek"
       )
       .then((res) => {
         const customerThisWeekDataSets = [0, 0, 0, 0, 0, 0, 0];
@@ -88,7 +88,7 @@ const Dashboard = () => {
   useEffect(() => {
     axios
       .get(
-        "http://localhost:5000/api/orders/revenue/getTotalCustomerByLastWeek"
+        "https://deloy-backend-shoeshop.onrender.com/api/orders/revenue/getTotalCustomerByLastWeek"
       )
       .then((res) => {
         const customerLastWeekDataSets = [0, 0, 0, 0, 0, 0, 0];
@@ -110,7 +110,7 @@ const Dashboard = () => {
   useEffect(() => {
     axios
       .get(
-        "http://localhost:5000/api/orders/revenue/getTopProductByRevenue/6"
+        "https://deloy-backend-shoeshop.onrender.com/api/orders/revenue/getTopProductByRevenue/6"
       )
       .then((res) => {
         setTopProductByRevenue(res.data);
@@ -120,7 +120,7 @@ const Dashboard = () => {
   useEffect(() => {
     axios
       .get(
-        "http://localhost:5000/api/orders/revenue/getTopProductByQuantity/6"
+        "https://deloy-backend-shoeshop.onrender.com/api/orders/revenue/getTopProductByQuantity/6"
       )
       .then((res) => {
         setTopProductByQuantity(res.data);

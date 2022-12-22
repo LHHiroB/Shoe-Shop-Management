@@ -78,7 +78,7 @@ const Customers = () => {
   };
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/customers/list")
+      .get("https://deloy-backend-shoeshop.onrender.com/api/customers/list")
       .then((res) => {
         console.log(res.data);
         CalculateTotalPrice(res.data);

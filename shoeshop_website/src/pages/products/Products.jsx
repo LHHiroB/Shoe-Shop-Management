@@ -80,7 +80,7 @@ const Products = () => {
   //get product from API
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/products/listProduct")
+      .get("https://deloy-backend-shoeshop.onrender.com/api/products/listProduct")
       .then((res) => {
         setProducts(res.data);
         setOriginProducts(res.data);
@@ -93,7 +93,7 @@ const Products = () => {
   //get All products
   const getAllProducts = () => {
     axios
-      .get("http://localhost:5000/api/products/listProduct")
+      .get("https://deloy-backend-shoeshop.onrender.com/api/products/listProduct")
       .then((res) => {
         setProducts(res.data);
       })
@@ -135,7 +135,7 @@ const Products = () => {
   const handleFilterProductsByCategory = (e) => {
     axios
       .get(
-        "http://localhost:5000/api/products/productByCategory",
+        "https://deloy-backend-shoeshop.onrender.com/api/products/productByCategory",
         {
           params: {
             category: e.target.value,
@@ -167,7 +167,7 @@ const Products = () => {
   const handleDeleteProduct = () => {
     axios
       .delete(
-        `http://localhost:5000/api/products/deleteOnebyId/${selectedProduct._id}`
+        `https://deloy-backend-shoeshop.onrender.com/api/products/deleteOnebyId/${selectedProduct._id}`
       )
       .then((res) => {
         handleCloseDialog();

@@ -95,7 +95,7 @@ const Sales = () => {
   //get All cateogories
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/products/getAllCategories")
+      .get("https://deloy-backend-shoeshop.onrender.com/api/products/getAllCategories")
       .then((res) => {
         setCategories(res.data);
       });
@@ -104,7 +104,7 @@ const Sales = () => {
   useEffect(() => {
     axios
       .get(
-        "http://localhost:5000/api/products/productByCategory",
+        "https://deloy-backend-shoeshop.onrender.com/api/products/productByCategory",
         {
           params: {
             category: categoryActive,
@@ -127,7 +127,7 @@ const Sales = () => {
   // get All customers
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/customers/list")
+      .get("https://deloy-backend-shoeshop.onrender.com/api/customers/list")
       .then((res) => {
         setCustomers(res.data);
       })

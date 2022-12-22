@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./checkout.css";
-import { useReactToPrint } from "react-to-print";
 import { useLocation, useHistory } from "react-router-dom";
 import QRCode from "qrcode";
 import axios from "axios";
@@ -27,9 +26,7 @@ const Checkout = () => {
   // console.log(JSON.parse(localStorage.getItem("currentCustomer")));
 
   const componentRef = useRef();
-  const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-  });
+  
   const handleCheckout = () => {
     const orderApi = {
       user: order.user.userId,
@@ -46,7 +43,7 @@ const Checkout = () => {
       }),
     };
     axios
-      .post("http://localhost:5000/api/orders", { ...orderApi })
+      .post("https://deloy-backend-shoeshop.onrender.com/api/orders", { ...orderApi })
       .then((res) => {
         setQrImage(res.data.qrCodeUrl);
         setOrderId(res.data._id);
@@ -71,7 +68,6 @@ const Checkout = () => {
           "currentCustomer",
           JSON.stringify(existCurrentCustomer)
         );
-        handlePrint();
         history.push("/sales");
         alert("Thanh toán thành công");
       })

@@ -57,7 +57,7 @@ const ProductsNavbar = ({ setRerenderProducts , handlePrint}) => {
     excelFileProducts.append("file", selectedFile);
     axios
       .post(
-        "http://localhost:5000/api/products/import",
+        "https://deloy-backend-shoeshop.onrender.com/api/products/import",
         excelFileProducts,
         {
           headers: {

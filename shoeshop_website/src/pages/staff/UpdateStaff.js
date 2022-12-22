@@ -27,7 +27,7 @@ const UpdateStaff = ({ staff, setStaff, setShowFormUpdateStaff }) => {
     //post to API
     axios
       .put(
-        `http://localhost:5000/api/users/updateUser/${staff._id}`,
+        `https://deloy-backend-shoeshop.onrender.com/api/users/updateUser/${staff._id}`,
         formStaff,
         {
           headers: {

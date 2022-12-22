@@ -45,7 +45,7 @@ const AddCustomer = ({ open, handleCancel }) => {
     //post to API
     axios
       .post(
-        "http://localhost:5000/api/customers/create",
+        "https://deloy-backend-shoeshop.onrender.com/api/customers/create",
         customer
       )
       .then((res) => {

@@ -22,7 +22,7 @@ const ChangePassWord = () => {
 
     //post to API
     axios
-      .post("http://localhost:5000/api/users/changePass", user)
+      .post("https://deloy-backend-shoeshop.onrender.com/api/users/changePass", user)
       .then((res) => {
         alert("Cập nhật mật khẩu thành công");
       })

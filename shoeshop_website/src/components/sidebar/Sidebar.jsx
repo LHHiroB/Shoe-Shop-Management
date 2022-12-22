@@ -25,7 +25,7 @@ const Sidebar = ({ currentTabIndex, setCurrentTabIndex }) => {
 
             axios
                 .get(
-                    `http://localhost:5000/api/users/getInfo/${userLocal.userId}`
+                    `https://deloy-backend-shoeshop.onrender.com/api/users/getInfo/${userLocal.userId}`
                 )
                 .then((res) => {
                     setUser(res.data);

@@ -42,7 +42,7 @@ const AddStaff = ({ setShowFormAddStaff }) => {
     //post to API
     axios
       .post(
-        "http://localhost:5000/api/users/register",
+        "https://deloy-backend-shoeshop.onrender.com/api/users/register",
         formStaff,
         {
           headers: {

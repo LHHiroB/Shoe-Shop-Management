@@ -18,7 +18,7 @@ const OrderDetail = () => {
   };
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/orders/${orderId}`)
+      .get(`https://deloy-backend-shoeshop.onrender.com/api/orders/${orderId}`)
       .then((res) => {
         setOrder(res.data);
       })

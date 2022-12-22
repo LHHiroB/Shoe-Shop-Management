@@ -41,7 +41,7 @@ export default function EditProfile({ rerender, setRerender }) {
     //post to API
     axios
       .put(
-        `http://localhost:5000/api/users/updateUser/${user._id}`,
+        `https://deloy-backend-shoeshop.onrender.com/api/users/updateUser/${user._id}`,
         formStaff,
         {
           headers: {
