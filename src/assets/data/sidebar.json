@@ -1,0 +1,52 @@
+[
+  {
+    "display_name": "Trang chủ",
+    "route": "/",
+    "icon": "bx bx-home",
+    "permissionUser": [0, 1, 2]
+  },
+  {
+    "display_name": "Bán hàng",
+    "route": "/sales",
+    "icon": "bx bx-store-alt",
+    "permissionUser": [0, 1]
+  },
+  {
+    "display_name": "Khách hàng",
+    "route": "/customers",
+    "icon": "bx bx-user-pin",
+    "permissionUser": [0, 1, 2]
+  },
+  {
+    "display_name": "Sản phẩm",
+    "route": "/products",
+    "icon": "bx bx-package",
+    "permissionUser": [0, 2]
+  },
+  {
+    "display_name": "Nhân viên",
+    "route": "/staffs",
+    "icon": "bx bx-user-circle",
+    "permissionUser": [0]
+  },
+
+  {
+    "display_name": "Doanh thu",
+    "route": "/revenues",
+    "icon": "bx bx-gift",
+    "permissionUser": [0]
+  },
+  {
+    "display_name": "Hoá đơn",
+    "route": "/orders",
+    "icon": "bx bx-notepad",
+    "permissionUser": [0, 1]
+  },
+
+  {
+    "display_name": "Tài khoản",
+    "route": "/editProfile",
+    "icon": "bx bx-id-card",
+    "permissionUser": [0, 1, 2]
+  }
+]
