@@ -1,0 +1,21 @@
+.list-action-products-btn {
+  margin-right: 20px;
+  margin-top: 10px;
+
+  justify-content: flex-end;
+}
+.action-products-btn {
+  width: 100%;
+  background-color: #36c590;
+  margin: 16px 10px 0 20px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 10px;
+  color: #fff;
+  
+
+}

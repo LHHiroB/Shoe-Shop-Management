@@ -1,0 +1,71 @@
+/* .revenues-container {
+} */
+.revuenues-filter {
+  /* position: fixed; */
+  margin-left: 20px;
+}
+.revenues-title {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+.revenues-card {
+  /* width: 230px; */
+  /* border: 1px solid #a19b9b; */
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  animation: fade-in-ani 1s;
+  box-shadow: 2px 3px 8px rgb(0 0 0 / 12%);
+  background-color: #fff;
+}
+.revenues-card:hover {
+  box-shadow: 2px 4px 12px rgb(0 80 143 / 36%);
+}
+.revenues-card-title {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+.revenues-card-row > span {
+  margin-left: 10px;
+}
+.revenues-card-row {
+  padding: 4px 0;
+  animation: opacity 1.5s;
+}
+.revenues-card-row.submit {
+  text-align: center;
+}
+.revenues-card-row > button {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 4px;
+  background: #62b4ff;
+  color: #fff;
+  width: 100%;
+  margin-top: 8px;
+}
+
+@media (min-width: 1024px) {
+  .revenues-card-row > button {
+    padding: 6px;
+    margin-top: 10px;
+  }
+}
+@keyframes fade-in-ani {
+  from {
+    opacity: 0;
+    transform: translate(0, -25%);
+  }
+  to {
+    transform: translate(0, 0%);
+    opacity: 1;
+  }
+}
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,207 @@
+.user {
+    flex: 4;
+    padding: 20px;
+  }
+  
+  .userTitleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -20px;
+  }
+  .userTitle {
+    font-size: 25px;
+    opacity: 0.6;
+  }
+  .userLogout {
+    border: none;
+    padding: 10px;
+    background-color: teal;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    margin-left: 25px;
+  }
+  .userChangePassWord {
+    border: none;
+    padding: 10px;
+    background-color: rgb(3, 169, 244);
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+  }
+  
+  .userContainer {
+    display: flex;
+    margin-top: 20px;
+  }
+  
+  .userShow {
+    flex: 1;
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    background-color: #fff;
+    animation: opacity 2s;
+  }
+  
+  .userUpdate {
+    flex: 2;
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+    margin-left: 20px;
+    background-color: #fff;
+    animation: trans 2s;
+  }
+  
+  .userShowTop {
+    display: flex;
+    align-items: center;
+  }
+  
+  .userShowImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .userShowTopTitle {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+  }
+  
+  .userShowUsername {
+    font-weight: 600;
+  }
+  
+  .userShowUserTitle {
+    font-weight: 300;
+  }
+  
+  .userShowBottom {
+    margin-top: 20px;
+  }
+  
+  .userShowTitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(175, 170, 170);
+  }
+  
+  .userShowInfo {
+    display: flex;
+    align-items: center;
+    margin: 20px 0px;
+    color: #444;
+  }
+  
+  .userShowIcon {
+    font-size: 16px !important;
+  }
+  
+  .userShowInfoTitle {
+    margin-left: 10px;
+  }
+  .user-date-picker {
+    margin-top: 4px;
+    border-bottom: 1px solid gray;
+  }
+  
+  .react-date-picker__wrapper {
+    border: none !important;
+  }
+  .user-date-picker > * {
+    width: 100%;
+    font-size: 14px !important;
+    /* padding: 0 10px !important; */
+  }
+  .userUpdateTitle {
+    font-size: 24px;
+    font-weight: 600;
+    opacity: 0.7;
+  }
+  
+  .userUpdateForm {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .userUpdateItem {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+  
+  .userUpdateItem > label {
+    margin-bottom: 0px;
+    font-size: 14px;
+  }
+  
+  .userUpdateInput {
+    border: none;
+    width: 250px;
+    height: 30px;
+    border-bottom: 1px solid gray;
+  }
+  
+  .userUpdateRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .userUpdateUpload {
+    display: flex;
+    align-items: center;
+  }
+  
+  .userUpdateImg {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  
+  .userUpdateIcon {
+    cursor: pointer;
+  }
+  
+  .userUpdateButton {
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    background-color: darkblue;
+    color: white;
+    font-weight: 600;
+  }
+  
+  @keyframes opacity {
+    from {
+      transform: translate(-5%, 0%);
+      opacity: 0.5;
+    }
+    to {
+      opacity: 1;
+      transform: translate(0%, 0%);
+    }
+  }
+  
+  @keyframes trans {
+    from {
+      opacity: 0;
+      transform: translate(-15%, 0%);
+    }
+    to {
+      transform: translate(0, 0%);
+      opacity: 1;
+    }
+  }
+  

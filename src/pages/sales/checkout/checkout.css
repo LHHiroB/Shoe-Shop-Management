@@ -1,0 +1,136 @@
+.invoice-container {
+  position: relative;
+  padding: 0px 50px 100px;
+}
+.invoice-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.invoice-header > h3 {
+  font-size: 24px;
+  padding: 10px;
+  padding-bottom: 5px;
+}
+.invoice-info {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.invoice-info-row > h3 {
+  font-size: 20px;
+}
+.invoice-info-right {
+  margin-top: -110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.invoice-qrcode {
+  margin-left: 170px;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+.invoice-qrcode > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.invoice-table-bill-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#invoice-table {
+  width: 100%;
+  max-height: 300px;
+  table-layout: fixed;
+  border: 1px solid #ddd;
+}
+
+#invoice-table th,
+#invoice-table td {
+  border-bottom: 1px solid #ddd;
+  padding: 8px;
+}
+#invoice-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#invoice-table tr:hover {
+  background-color: #ddd;
+}
+
+#invoice-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(3, 169, 244);
+  color: white;
+}
+#invoice-table td:first-child,
+#invoice-table th:first-child {
+  width: 100px;
+  overflow: hidden;
+}
+#invoice-table td:nth-child(3),
+#invoice-table th:nth-child(3) {
+  width: 100px;
+}
+#invoice-table td:nth-child(4),
+#invoice-table th:nth-child(4) {
+  width: 100px;
+}
+#invoice-table td:nth-child(5),
+#invoice-table th:nth-child(5) {
+  width: 120px;
+}
+.table-footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.table-footer-left {
+  padding: 0 20px;
+  width: 50%;
+}
+.table-footer-right {
+  display: flex;
+}
+.table-footer-right > p {
+  margin-right: 10px;
+}
+.invoice-confirm-row {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+.invoice-confirm-access {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+  background-color: rgb(3, 169, 244);
+  font-size: 18px;
+}
+.invoice-confirm-cancel {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: rgb(255, 66, 78);
+  color: #fff;
+  font-weight: bold;
+  margin-left: 55px;
+  font-size: 18px;
+}
+@media print {
+  .invoice-confirm-row {
+    display: none;
+  }
+}

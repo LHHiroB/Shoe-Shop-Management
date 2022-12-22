@@ -1,0 +1,163 @@
+.order-container {
+    margin-top: -45px;
+    margin-left: -20px;
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-bottom: 30px;
+    padding-top: 25px;
+  }
+  .order-table-container {
+    margin-top: 20px;
+  }
+  .order-card {
+    margin-bottom: 20px;
+    padding: 25px 20px;
+    box-shadow: 0 2px 15px rgb(0 0 0 / 15%);
+    border-radius: 8px;
+    background-color: #fff;
+    animation: fade-in-ani 1s;
+    margin-bottom: 25px;
+  }
+  .order-card:hover {
+    box-shadow: 0 3px 15px rgb(0 102 110 / 25%);
+  }
+  .order-card:last-child {
+    margin-bottom: 0;
+  }
+  
+  .order-card-heading {
+    font-size: 17px;
+    margin-bottom: 4px;
+  }
+  
+  .order-card-input {
+    font-size: 15px;
+    padding: 10px 0;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #bfbfbf;
+    width: 100%;
+  }
+  .order-card-date-picker {
+    border-bottom: 1px solid #bfbfbf;
+    padding: 0px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+  
+  .order-card-item > span {
+    font-size: 15px;
+  }
+  
+  #order-table {
+    width: 100%;
+    max-height: 350px;
+  
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    border-spacing: 0;
+  }
+  #order-table th:first-child {
+    border-top-left-radius: 10px;
+  }
+  #order-table th:last-child {
+    border-top-right-radius: 10px;
+  }
+  #order-table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+  }
+  #order-table tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+  }
+  #order-table th,
+  #order-table td {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    user-select: none;
+  }
+  #order-table tbody {
+    background-color: #fff;
+  }
+  #order-table tr td {
+    cursor: pointer;
+  }
+  #order-table tr:nth-child(even) {
+    background-color: #e1ecfd;
+  }
+  
+  #order-table tr:hover {
+    background-color: rgb(3, 169, 244);
+  }
+  
+  #order-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: rgb(3, 169, 244);
+    color: white;
+    border: 1px solid rgb(3, 169, 244);
+  }
+  #order-table td:first-child,
+  #order-table th:first-child {
+    width: 130px;
+  }
+  #order-table td:nth-child(2),
+  #order-table th:nth-child(2) {
+    width: 130px;
+  }
+  #order-table td:nth-child(3),
+  #order-table th:nth-child(3) {
+    width: 230px;
+  }
+  #order-table td:nth-child(4),
+  #order-table th:nth-child(4) {
+    width: 230px;
+  }
+  #order-table td:nth-child(5),
+  #order-table th:nth-child(5) {
+    width: 120px;
+  }
+  #order-table td:nth-child(6),
+  #order-table th:nth-child(6) {
+    width: 140px;
+  }
+  .pagination {
+    font-size: 14px;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+  }
+  .pagination-left {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+  }
+  .cell {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    background-color: #c4c4c4;
+    margin-right: 10px;
+    font-size: 14px;
+    color: #000;
+    user-select: none;
+  }
+  .cell.active {
+    background-color: #00b9f2;
+  
+    font-weight: bold;
+  }
+  @keyframes fade-in-ani {
+    from {
+      opacity: 0;
+      transform: translate(0, -25%);
+    }
+    to {
+      transform: translate(0, 0%);
+      opacity: 1;
+    }
+  }
+  

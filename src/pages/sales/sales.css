@@ -1,0 +1,336 @@
+.sales-container {
+  margin: 0 -10px;
+  margin-top: -25px;
+  display: flex;
+  background-color: #fafafb;
+}
+
+.sales-body-container {
+  width: 70%;
+  padding: 0 20px;
+  background-color: #fff;
+}
+
+.sales-bill-customer-container {
+  width: 30%;
+  position: sticky;
+}
+.sales-header-container {
+  margin-top: 10px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.sales-searchs {
+  width: 40%;
+}
+.sales-qr-btn > button {
+  background-color: rgb(3, 169, 244);
+  padding: 8px 20px;
+  color: #fff;
+  border-radius: 10px;
+}
+.sales-filter {
+  margin-right: 20px;
+}
+.tab-bills ul {
+  display: flex;
+  align-items: center;
+
+  margin: 0px 30px 20px;
+}
+.tab-bills ul li {
+  user-select: none;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+.tab-bills ul li.active {
+  border-bottom: 3px solid rgb(3, 169, 244);
+}
+.tab-bills ul li:hover {
+  background-color: rgb(3, 169, 244);
+}
+
+.sales-list-products {
+  display: flex;
+}
+.sales-card {
+  height: 280px;
+  position: relative;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.sales-card:hover .sales-card-img {
+  opacity: 0.8;
+}
+.sales-card:hover .sales-card-desc {
+  opacity: 0.7;
+}
+.sales-card:hover .sales-card-buy {
+  opacity: 1;
+}
+.sales-card-img {
+  vertical-align: bottom;
+  height: 190px;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+.sales-card-img > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.sales-card-desc {
+  margin-top: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sales-card-prices {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sales-card-prices > p {
+  font-size: 15px;
+}
+.sales-card-name > p {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: bold;
+  text-align: center;
+}
+.sales-card-prices > p {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 5px;
+}
+.sales-card-cost-price {
+  text-decoration: line-through;
+  color: rgb(49, 42, 42);
+}
+.sales-card-sale-price {
+  color: #c3092b;
+  font-weight: 700;
+}
+.sales-card-buy {
+  z-index: 2;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.sales-card-buy-btn {
+  user-select: none;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 15px;
+}
+/* .sales-bill-customer-container {
+} */
+.sales-bill-customer {
+  border-radius: 5px;
+  margin-left: 10px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.sales-bill-customer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 25px;
+  font-weight: bold;
+}
+.sales-bill-customer-header .btn-add {
+  background-color: rgb(3, 169, 244);
+  padding: 8px 20px;
+  color: #fff;
+  border-radius: 10px;
+}
+.sales-bill-search-container {
+  position: relative;
+  margin: 0 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.sales-bill-search {
+  border-radius: 5px;
+  width: 90%;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #67dbdb;
+}
+.sales-bill-search > input {
+  width: 100%;
+}
+.sales-bill-list {
+  z-index: 2;
+  position: absolute;
+  top: 40%;
+  left: 5%;
+  background: #fff;
+  box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+  font-weight: 500;
+  color: #333;
+  width: 90%;
+  max-height: 270px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.sales-bill-list-item {
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.sales-bill-list-item:hover {
+  background: rgb(3, 169, 244);
+}
+.sales-bill-customer-info {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.sales-bill-customer-info-item {
+  display: flex;
+  font-size: 15px;
+  padding: 5px;
+}
+.sales-order-detail {
+  background-color: #fff;
+  margin-left: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  padding: 10px;
+}
+.sales-order-detail-header {
+  margin-bottom: 10px;
+}
+.sales-order-detail-body {
+  max-height: 330px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.sales-order-detail-item {
+  display: flex;
+  align-items: center;
+
+  padding-bottom: 15px;
+}
+.sales-order-detail-img {
+  width: 20%;
+}
+.sales-order-detail-img > img {
+  height: 60px;
+  object-fit: cover;
+}
+.sales-order-detail-midle {
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+
+  width: 80%;
+}
+.sales-order-detail-right {
+  width: 17%;
+}
+.sales-order-detail-name {
+  display: flex;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+.sales-order-detail-name > p {
+  font-size: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.sales-order-detail-desc {
+  display: flex;
+}
+.group-count {
+  display: flex;
+  margin-right: 15px;
+}
+.group-count-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 30px;
+  border: 1px solid rgb(236, 236, 236);
+}
+.group-count-item > input {
+  width: 100%;
+  text-align: center;
+}
+.group-count-item:first-child {
+  border-right: none;
+}
+.group-count-item:last-child {
+  border-left: 0;
+}
+.sales-prices {
+  padding: 10px;
+  margin: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+.sales-prices-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+}
+.sales-prices-item:last-child {
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+.sales-prices-item > p {
+  color: gray;
+  font-weight: bold;
+}
+.sales-score-used {
+  padding: 5px;
+  text-align: center;
+  width: 50px;
+  border: 1px solid #ccc;
+}
+.sales-checkout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sales-checkout > button {
+  background: rgb(255, 66, 78);
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  color: #fff;
+  font-weight: bold;
+  margin: 0 10px;
+  font-size: 18px;
+}
