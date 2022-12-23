@@ -62,6 +62,7 @@ var spec =
                         "in": "username",      // Tham số được gửi lên từ form
                         "name": "Tài khoản",    // Tên tham số
                         "required": "true",    // Tham số là bắt buộc
+                        "unique": "true",
                         "schema": {
                             "type": "string"   // Loại dữ liệu của tham số là chuỗi
                         },
@@ -82,10 +83,10 @@ var spec =
                         description: "Rất tiếc, mật khẩu của bạn không đúng. Vui lòng kiểm tra lại mật khẩu."
                     },
                     400: {
-                        description: "Vui lòng nhập tài khoản"
+                        description: "Tài khoản không hợp lệ"
                     },
                     200: {
-                        description: ""
+                        description: "Send"
                     },
                 },
                 security: [
@@ -105,7 +106,8 @@ var spec =
                     {
                         "in": "username",      
                         "name": "Tài khoản",    
-                        "required": "true",    
+                        "required": "true",  
+                        "unique": "true",  
                         "schema": {
                             "type": "string"   
                         },
@@ -119,6 +121,34 @@ var spec =
                             "type": "string"
                         },
                         "description": "Nhập password cũ của tài khoản users"
+                    },
+                    {
+                        "in": "username",      
+                        "name": "Tài khoản",    
+                        "required": "true",  
+                        "unique": "true",  
+                        "schema": {
+                            "type": "string"   
+                        },
+                        "description": "Nhập username"
+                    },
+                    {
+                        "in": "passwordnew",
+                        "name": "Mật khẩu mới",
+                        "required": "true",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập password mới của tài khoản users"
+                    },
+                    {
+                        "in": "passwordnew",
+                        "name": "Nhập lại mật khẩu mới",
+                        "required": "true",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "description": "Nhập lại password mới của tài khoản users"
                     }
                 ],
                 responses: {
@@ -126,7 +156,7 @@ var spec =
                         description: "Rất tiếc, mật khẩu của bạn không đúng. Vui lòng kiểm tra lại mật khẩu."
                     },
                     200: {
-                        description: ""
+                        description: "Data"
                     },
                 },
                 security: [
@@ -161,7 +191,7 @@ var spec =
                         description: "Info not found"
                     },
                     200: {
-                        description: ""
+                        description: "Info"
                     },
                 },
                 security: [
@@ -238,7 +268,6 @@ var spec =
                     {
                         "in": "address",      
                         "name": "Địa chỉ",    
-                        "required": "true",    
                         "schema": {
                             "type": "string"   
                         },
@@ -247,7 +276,6 @@ var spec =
                     {
                         "in": "email",      
                         "name": "Email",    
-                        "required": "true",    
                         "schema": {
                             "type": "string"   
                         },
@@ -256,7 +284,6 @@ var spec =
                     {
                         "in": "gender",      
                         "name": "Giới tính",    
-                        "required": "true",    
                         "schema": {
                             "type": "string"   
                         },
@@ -265,7 +292,6 @@ var spec =
                     {
                         "in": "imageURL",      
                         "name": "Hình ảnh",    
-                        "required": "true",    
                         "schema": {
                             "type": "string"   
                         },
@@ -283,7 +309,6 @@ var spec =
                     {
                         "in": "birthdate",      
                         "name": "Ngày sinh",    
-                        "required": "true",    
                         "schema": {
                             "type": "Date"   
                         },
@@ -291,7 +316,15 @@ var spec =
                     }
                 ],
                 responses: {
-                    
+                    200: {
+                        description: "newUser"
+                    },
+                    500: {
+                        description: "ERROR"
+                    },
+                    400: {
+                        description: "ERROR"
+                    }
                 },
                 security: [
                     
@@ -357,7 +390,6 @@ var spec =
                     {
                         "in": "address",      
                         "name": "Địa chỉ",    
-                        "required": "true",    
                         "schema": {
                             "type": "string"   
                         },
@@ -366,7 +398,6 @@ var spec =
                     {
                         "in": "email",      
                         "name": "Email",    
-                        "required": "true",    
                         "schema": {
                             "type": "string"   
                         },
@@ -384,7 +415,6 @@ var spec =
                     {
                         "in": "gender",      
                         "name": "Giới tính",    
-                        "required": "true",    
                         "schema": {
                             "type": "string"   
                         },
@@ -393,7 +423,6 @@ var spec =
                     {
                         "in": "imageURL",      
                         "name": "Hình ảnh",    
-                        "required": "true",    
                         "schema": {
                             "type": "string"   
                         },
@@ -402,7 +431,6 @@ var spec =
                     {
                         "in": "birthdate",      
                         "name": "Ngày sinh",    
-                        "required": "true",    
                         "schema": {
                             "type": "Date"   
                         },
@@ -410,7 +438,12 @@ var spec =
                     }
                 ],
                 responses: {
-                    
+                    200: {
+                        description: "ERROR"
+                    },
+                    400: {
+                        description: "Document"
+                    }
                 },
                 security: [
                     
@@ -492,7 +525,12 @@ var spec =
                     }
                 ],
                 responses: {
-                    
+                    200: {
+                        description: "users"
+                    },
+                    404: {
+                        description: "User not found"
+                    }
                 },
                 security: [
                     
@@ -519,7 +557,12 @@ var spec =
                     }
                 ],
                 responses: {
-                    
+                    200: {
+                        description: "Removed user: "
+                    },
+                    500: {
+                        description: "ERROR"
+                    }
                 },
                 security: [
                     
@@ -539,7 +582,12 @@ var spec =
                     
                 ],
                 responses: {
-                    
+                    200: {
+                        description: "customers"
+                    },
+                    500: {
+                        description: "Bad Server"
+                    }
                 },
                 security: [
                     
@@ -577,7 +625,6 @@ var spec =
                     {
                         "in": "address",      
                         "name": "Địa chỉ",    
-                        "required": "true",    
                         "schema": {
                             "type": "string"   
                         },
@@ -586,7 +633,6 @@ var spec =
                     {
                         "in": "email",      
                         "name": "Email",    
-                        "required": "true",    
                         "schema": {
                             "type": "string"   
                         },
@@ -595,7 +641,6 @@ var spec =
                     {
                         "in": "point",      
                         "name": "Tích điểm",    
-                        "required": "true",    
                         "schema": {
                             "type": "Number"   
                         },
@@ -604,7 +649,6 @@ var spec =
                     {
                         "in": "gender",      
                         "name": "Giới tính",    
-                        "required": "true",    
                         "schema": {
                             "type": "string"   
                         },
@@ -612,7 +656,12 @@ var spec =
                     }
                 ],
                 responses: {
-                    
+                    200: {
+                        description: "newCustomer"
+                    },
+                    400: {
+                        description: "ERROR"
+                    }
                 },
                 security: [
                     
@@ -631,7 +680,6 @@ var spec =
                     {
                         "in": "point",      
                         "name": "Tích điểm",    
-                        "required": "true",    
                         "schema": {
                             "type": "Number"   
                         },
@@ -640,7 +688,7 @@ var spec =
                 ],
                 responses: {
                     200: {
-
+                        description: "customer"
                     },
                     500: {
                         description: "Lỗi server"
@@ -665,7 +713,7 @@ var spec =
                 ],
                 responses: {
                     200: {
-                        
+                        description: "orders"
                     },
                     500: {
                         description: "Bad server"
@@ -689,7 +737,7 @@ var spec =
                 ],
                 responses: {
                     200: {
-                        
+                        description: "order"
                     },
                     500: {
                         description: "Lỗi server"
@@ -721,7 +769,6 @@ var spec =
                     {
                         "in": "customerID",      
                         "name": "ID Customer",    
-                        "required": "true",    
                         "schema": {
                             "type": "string"   
                         },
@@ -739,7 +786,6 @@ var spec =
                     {
                         "in": "discount",      
                         "name": "Ưu đãi",    
-                        "required": "true",    
                         "schema": {
                             "type": "Number"   
                         },
@@ -748,7 +794,6 @@ var spec =
                     {
                         "in": "orderTotal",      
                         "name": "Tổng sản phẩm",    
-                        "required": "true",    
                         "schema": {
                             "type": "Number"   
                         },
@@ -756,7 +801,12 @@ var spec =
                     }
                 ],
                 responses: {
-                    
+                    200: {
+                        description: "newCustomer"
+                    },
+                    400: {
+                        description: "Failure"
+                    }
                 },
                 security: [
                     
@@ -803,7 +853,6 @@ var spec =
                     {
                         "in": "customer",      
                         "name": "Khách hàng",    
-                        "required": "true",    
                         "schema": {
                             "type": "string"   
                         },
@@ -821,7 +870,6 @@ var spec =
                     {
                         "in": "discount",      
                         "name": "Ưu đãi",    
-                        "required": "true",    
                         "schema": {
                             "type": "Number"   
                         },
@@ -830,7 +878,6 @@ var spec =
                     {
                         "in": "orderTotal",      
                         "name": "Tổng sản phẩm",    
-                        "required": "true",    
                         "schema": {
                             "type": "Number"   
                         },
@@ -839,7 +886,6 @@ var spec =
                     {
                         "in": "status",      
                         "name": "Tình trạng",    
-                        "required": "true",    
                         "schema": {
                             "type": "string"   
                         },
@@ -847,7 +893,12 @@ var spec =
                     }
                 ],
                 responses: {
-                    
+                    200: {
+                        description: "orderbyUser"
+                    },
+                    500: {
+                        description: "Lỗi Order"
+                    }
                 },
                 security: [
                     
