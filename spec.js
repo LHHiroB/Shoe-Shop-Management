@@ -1206,30 +1206,6 @@ var spec =
                 ]
             }
         },
-        "/products/import": {    
-            post: {        
-                tags: ["products"],
-                summary: "Nhập khẩu",
-                description: "",
-                operationId: "import",
-                consumes: ["multipart/form-data"],    
-                produces: ["application/json"],       
-                parameters: [               
-                    
-                ],
-                responses: {
-                    200: {
-                        description: "Import dữ liệu thành công"
-                    },
-                    500: {
-                        description: "File không có dữ liệu hoặc không đúng định dạng!"
-                    }
-                },
-                security: [
-                    
-                ]
-            }
-        },
         "/products/img/updates": {    
             post: {        
                 tags: ["products"],
@@ -1378,7 +1354,6 @@ var spec =
                     {
                         "in": "imageDisplay",      
                         "name": "Thay đổi hình ảnh sản phẩm",    
-                        "required": "true",    
                         "schema": {
                             "type": "string"   
                         },
@@ -1387,7 +1362,8 @@ var spec =
                     {
                         "in": "name",      
                         "name": "Tên sản phẩm cập nhật",    
-                        "required": "true",    
+                        "required": "true",   
+                        "unique": "true",
                         "schema": {
                             "type": "string"   
                         },
@@ -1405,7 +1381,6 @@ var spec =
                     {
                         "in": "discount",      
                         "name": "Ưu đãi mới",    
-                        "required": "true",    
                         "schema": {
                             "type": "Number"   
                         },
@@ -1414,7 +1389,12 @@ var spec =
                     
                 ],
                 responses: {
-                    
+                    500: {
+                        description: "Product Id incorrect!"
+                    },
+                    200: {
+                        description: "doc"
+                    }
                 },
                 security: [
                     
