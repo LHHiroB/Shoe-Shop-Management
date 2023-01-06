@@ -65,6 +65,9 @@ const columns = [
 
 const Products = () => {
   const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
   // test
   const [products, setProducts] = useState([]);
   const [originProducts, setOriginProducts] = useState([]);
@@ -224,6 +227,7 @@ const Products = () => {
         <ProductsNavbar
           // test
           setRerenderProducts={setRerenderProducts}
+          handlePrint={handlePrint} 
         />
 
       </div>
@@ -337,7 +341,7 @@ const Products = () => {
             />
           </Paper>
         </div>
-
+       
         
       </div>
     </div>

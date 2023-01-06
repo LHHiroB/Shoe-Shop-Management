@@ -101,7 +101,15 @@ const ProductsNavbar = ({ setRerenderProducts , handlePrint}) => {
           className="action-products-btn"
         >
           <i class="bx bx-plus"></i>
-          Thêm mới{" "}
+          Thêm mới {" "}
+        </div>
+        <div
+          onClick={() => {
+            handlePrint();
+          }}
+          className="action-products-btn"
+        >
+          <i class="bx bxs-file-export"></i>Xuất file
         </div>
       </div>
     </div>

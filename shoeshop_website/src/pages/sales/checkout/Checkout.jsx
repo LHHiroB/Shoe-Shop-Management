@@ -3,6 +3,7 @@ import "./checkout.css";
 import { useLocation, useHistory } from "react-router-dom";
 import QRCode from "qrcode";
 import axios from "axios";
+import { useReactToPrint } from "react-to-print";
 const Checkout = () => {
   let history = useHistory();
   let location = useLocation();
@@ -26,7 +27,9 @@ const Checkout = () => {
   // console.log(JSON.parse(localStorage.getItem("currentCustomer")));
 
   const componentRef = useRef();
-  
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
   const handleCheckout = () => {
     const orderApi = {
       user: order.user.userId,
@@ -68,6 +71,7 @@ const Checkout = () => {
           "currentCustomer",
           JSON.stringify(existCurrentCustomer)
         );
+        handlePrint();
         history.push("/sales");
         alert("Thanh toán thành công");
       })
